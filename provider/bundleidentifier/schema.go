@@ -30,7 +30,7 @@ func Resource() *schema.Resource {
 				ForceNew:    true,
 			},
 			"platform": {
-				Description:  "platform, either `IOS`, `MAC_OS` or `UNIVERSAL`",
+				Description:  "platform, either `IOS` or `MAC_OS`",
 				Type:         schema.TypeString,
 				Required:     true,
 				ForceNew:     true,

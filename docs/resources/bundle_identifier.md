@@ -28,7 +28,7 @@ resource "appstore_bundle_identifier" "this" {
 
 - `identifier` (String) identifier like `com.example.app`
 - `name` (String) name
-- `platform` (String) platform, either `IOS`, `MAC_OS` or `UNIVERSAL`
+- `platform` (String) platform, either `IOS` or `MAC_OS`
 
 ### Optional
 
