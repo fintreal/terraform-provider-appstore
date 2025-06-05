@@ -14,7 +14,7 @@ func Create(ctx context.Context, d *schema.ResourceData, m any) diag.Diagnostics
 
 	identifier := d.Get("identifier").(string)
 	name := d.Get("name").(string)
-	platform := d.Get("platform").(string)
+	platform := "IOS"
 	capabilities := d.Get("capabilities").([]any)
 
 	request := NewBundleIdCreateRequest(name, platform, identifier)
@@ -49,9 +49,6 @@ func Create(ctx context.Context, d *schema.ResourceData, m any) diag.Diagnostics
 		diags = append(diags, diag.FromErr(err)...)
 	}
 	if err := d.Set("identifier", attributes.GetIdentifier()); err != nil {
-		diags = append(diags, diag.FromErr(err)...)
-	}
-	if err := d.Set("platform", attributes.GetPlatform()); err != nil {
 		diags = append(diags, diag.FromErr(err)...)
 	}
 	if len(newCapabilities) > 0 {

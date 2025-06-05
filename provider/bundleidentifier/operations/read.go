@@ -34,9 +34,6 @@ func Read(ctx context.Context, d *schema.ResourceData, m any) diag.Diagnostics {
 	if err := d.Set("identifier", attributes.GetIdentifier()); err != nil {
 		diags = append(diags, diag.FromErr(err)...)
 	}
-	if err := d.Set("platform", attributes.GetPlatform()); err != nil {
-		diags = append(diags, diag.FromErr(err)...)
-	}
 
 	return diags
 }

@@ -29,13 +29,6 @@ func Resource() *schema.Resource {
 				Required:    true,
 				ForceNew:    true,
 			},
-			"platform": {
-				Description:  "platform, either `IOS` or `MAC_OS`",
-				Type:         schema.TypeString,
-				Required:     true,
-				ForceNew:     true,
-				ValidateFunc: validation.StringInSlice([]string{"IOS", "MAC_OS", "UNIVERSAL"}, true),
-			},
 			"capabilities": {
 				Description: "Capabilities of the app",
 				Type:        schema.TypeList,
