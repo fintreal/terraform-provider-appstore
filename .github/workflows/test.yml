@@ -1,0 +1,55 @@
+name: Test Provider
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: '0 2 * * *'
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+  APPSTORE_KEY: ${{ secrets.APPSTORE_KEY }}
+  APPSTORE_KEY_ID: ${{ secrets.APPSTORE_KEY_ID }}
+  APPSTORE_KEY_ISSUER_ID: ${{ secrets.APPSTORE_KEY_ISSUER_ID }}
+
+jobs:
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.22.0'
+
+      - name: Install provider
+        run: go install .
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.7.0
+
+      - name: Setup Terraformrc
+        run: |
+          mkdir -p ~/.terraform.d/plugins
+          cat > ~/.terraformrc << 'EOF'
+          provider_installation {
+            dev_overrides {
+              "fintreal/appstore" = "/home/runner/go/bin"
+            }
+          }
+          EOF
+
+      - name: Terraform Apply
+        working-directory: .github/test
+        run: terraform apply -auto-approve
+
+      - name: Terraform Destroy
+        if: always()
+        working-directory: .github/test
+        run: terraform destroy -auto-approve

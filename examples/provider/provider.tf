@@ -1,6 +1,6 @@
 terraform {
   required_providers {
-    eas = {
+    appstore = {
       source  = "fintreal/appstore"
     }
   }

@@ -43,7 +43,7 @@ The `appstore_bundle_identifier` resource allows you to manage bundle identifier
 resource "appstore_bundle_identifier" "example" {
   name       = "My App Bundle Identifier"
   identifier = "com.example.app"
-  platform   = "UNIVERSAL"  # Options: IOS, MAC_OS, UNIVERSAL
+  platform   = "IOS"  # Options: IOS, MAC_OS
   capabilities = [
     "APPLE_ID_AUTH",
     "PUSH_NOTIFICATIONS",
