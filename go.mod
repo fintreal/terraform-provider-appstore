@@ -3,7 +3,7 @@ module github.com/fintreal/terraform-provider-appstore
 go 1.24.1
 
 require (
-	github.com/fintreal/app-store-sdk-go v1.1.0
+	github.com/fintreal/app-store-sdk-go v1.1.1
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.36.1
 )
 

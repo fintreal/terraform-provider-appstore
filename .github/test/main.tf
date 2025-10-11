@@ -1,7 +1,16 @@
+terraform {
+  required_providers {
+    appstore = {
+      source  = "fintreal/appstore"
+    }
+  }
+}
+
+provider "appstore" { }
+
 resource "appstore_bundle_identifier" "this" {
   name       = "Terraform Test Bundle Identifier"
-  identifier = "com.terraform.test"
-  platform   = "IOS"
+  identifier = "com.terraform.test.workflow"
   capabilities = ["APPLE_ID_AUTH"]
 }
 
