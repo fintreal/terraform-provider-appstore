@@ -22,5 +22,5 @@ resource "appstore_provisioning_profile" "this" {
 }
 
 data "appstore_certificate" "this" {
-  serial_number = "JVLG7LVRRL"
+  serial_number = "3D986E25FF1B48C2417853A07AA15C55"
 }
