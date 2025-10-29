@@ -2,6 +2,7 @@ package operations
 
 import (
 	"context"
+	"fmt"
 
 	openapi "github.com/fintreal/app-store-sdk-go"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
@@ -64,6 +65,9 @@ func getBySerialNumber(ctx context.Context, client *openapi.APIClient, serialNum
 	resp, _, err := client.CertificatesAPI.CertificatesGetCollection(ctx).FilterSerialNumber([]string{serialNumber}).Execute()
 	if err != nil {
 		return nil, err
+	}
+	if len(resp.Data) == 0 {
+		return nil, fmt.Errorf("certificate not found with serial_number: %s", serialNumber)
 	}
 	return &resp.Data[0], nil
 }
