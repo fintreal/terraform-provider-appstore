@@ -3,7 +3,7 @@ module github.com/fintreal/terraform-provider-appstore
 go 1.24.1
 
 require (
-	github.com/fintreal/app-store-sdk-go v1.1.1
+	github.com/fintreal/app-store-sdk-go v1.2.0
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.36.1
 )
 
@@ -11,7 +11,7 @@ require (
 	github.com/agext/levenshtein v1.2.2 // indirect
 	github.com/apparentlymart/go-textseg/v15 v15.0.0 // indirect
 	github.com/fatih/color v1.16.0 // indirect
-	github.com/golang-jwt/jwt/v5 v5.2.2 // indirect
+	github.com/golang-jwt/jwt/v5 v5.3.0 // indirect
 	github.com/golang/protobuf v1.5.4 // indirect
 	github.com/google/go-cmp v0.7.0 // indirect
 	github.com/hashicorp/go-cty v1.4.1-0.20200414143053-d3edf31b6320 // indirect

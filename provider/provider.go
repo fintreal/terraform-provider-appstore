@@ -5,6 +5,7 @@ import (
 
 	appstore "github.com/fintreal/app-store-sdk-go"
 	"github.com/fintreal/terraform-provider-appstore/provider/bundleidentifier"
+	"github.com/fintreal/terraform-provider-appstore/provider/certificate"
 	"github.com/fintreal/terraform-provider-appstore/provider/provisioningprofile"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
@@ -32,7 +33,9 @@ func Provider() *schema.Provider {
 				DefaultFunc: schema.EnvDefaultFunc("APPSTORE_KEY_ISSUER_ID", ""),
 			},
 		},
-		DataSourcesMap: map[string]*schema.Resource{},
+		DataSourcesMap: map[string]*schema.Resource{
+			"appstore_certificate": certificate.Resource(),
+		},
 		ResourcesMap: map[string]*schema.Resource{
 			"appstore_bundle_identifier":    bundleidentifier.Resource(),
 			"appstore_provisioning_profile": provisioningprofile.Resource(),
