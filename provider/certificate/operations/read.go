@@ -17,13 +17,13 @@ func Read(ctx context.Context, d *schema.ResourceData, m any) diag.Diagnostics {
 
 	var cert *openapi.Certificate
 	var err error
-	if serialNumber != "" {
-		cert, err = getBySerialNumber(ctx, client, serialNumber)
+	if id != "" {
+		cert, err = getById(ctx, client, id)
 		if err != nil {
 			return diag.FromErr(err)
 		}
 	} else {
-		cert, err = getById(ctx, client, id)
+		cert, err = getBySerialNumber(ctx, client, serialNumber)
 		if err != nil {
 			return diag.FromErr(err)
 		}
