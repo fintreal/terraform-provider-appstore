@@ -20,3 +20,7 @@ resource "appstore_provisioning_profile" "this" {
   type = "IOS_APP_STORE"
   certificate_ids = ["JVLG7LVRRL"]
 }
+
+data "appstore_certificate" "this" {
+  serial_number = "3D986E25FF1B48C2417853A07AA15C55"
+}
