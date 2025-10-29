@@ -26,17 +26,17 @@ func Resource() *schema.Resource {
 			"name": {
 				Description: "name",
 				Type:        schema.TypeString,
-				Required:    false,
+				Computed:    true,
 			},
 			"type": {
 				Description: "type",
 				Type:        schema.TypeString,
-				Required:    false,
+				Computed:    true,
 			},
 			"content": {
 				Description: "content",
 				Type:        schema.TypeString,
-				Required:    false,
+				Computed:    true,
 				Sensitive:   true,
 			},
 		},
