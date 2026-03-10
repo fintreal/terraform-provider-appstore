@@ -68,3 +68,11 @@ Requires three credentials (via provider config or env vars):
 - Release is automated: push to `main` triggers semver bump, doc generation, and goreleaser
 - Commit messages follow conventional commits (e.g., `feat:`, `fix:`, `chore:`)
 - Private Go modules: set `GOPRIVATE=github.com/fintreal/*`
+
+## MCP Servers
+
+| Server | Purpose |
+|--------|---------|
+| `github` | GitHub PRs, issues, code search |
+| `linear-fintreal` | Fintreal tickets and issue tracking |
+| `context7` | Up-to-date library documentation |
