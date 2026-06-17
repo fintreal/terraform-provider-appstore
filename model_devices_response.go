@@ -22,6 +22,8 @@ var _ MappedNullable = &DevicesResponse{}
 // DevicesResponse struct for DevicesResponse
 type DevicesResponse struct {
 	Data []Device `json:"data"`
+	Links *PagedDocumentLinks `json:"links,omitempty"`
+	Meta *PagingInformation `json:"meta,omitempty"`
 }
 
 type _DevicesResponse DevicesResponse
@@ -68,6 +70,70 @@ func (o *DevicesResponse) SetData(v []Device) {
 	o.Data = v
 }
 
+// GetLinks returns the Links field value if set, zero value otherwise.
+func (o *DevicesResponse) GetLinks() PagedDocumentLinks {
+	if o == nil || IsNil(o.Links) {
+		var ret PagedDocumentLinks
+		return ret
+	}
+	return *o.Links
+}
+
+// GetLinksOk returns a tuple with the Links field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DevicesResponse) GetLinksOk() (*PagedDocumentLinks, bool) {
+	if o == nil || IsNil(o.Links) {
+		return nil, false
+	}
+	return o.Links, true
+}
+
+// HasLinks returns a boolean if a field has been set.
+func (o *DevicesResponse) HasLinks() bool {
+	if o != nil && !IsNil(o.Links) {
+		return true
+	}
+
+	return false
+}
+
+// SetLinks gets a reference to the given PagedDocumentLinks and assigns it to the Links field.
+func (o *DevicesResponse) SetLinks(v PagedDocumentLinks) {
+	o.Links = &v
+}
+
+// GetMeta returns the Meta field value if set, zero value otherwise.
+func (o *DevicesResponse) GetMeta() PagingInformation {
+	if o == nil || IsNil(o.Meta) {
+		var ret PagingInformation
+		return ret
+	}
+	return *o.Meta
+}
+
+// GetMetaOk returns a tuple with the Meta field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DevicesResponse) GetMetaOk() (*PagingInformation, bool) {
+	if o == nil || IsNil(o.Meta) {
+		return nil, false
+	}
+	return o.Meta, true
+}
+
+// HasMeta returns a boolean if a field has been set.
+func (o *DevicesResponse) HasMeta() bool {
+	if o != nil && !IsNil(o.Meta) {
+		return true
+	}
+
+	return false
+}
+
+// SetMeta gets a reference to the given PagingInformation and assigns it to the Meta field.
+func (o *DevicesResponse) SetMeta(v PagingInformation) {
+	o.Meta = &v
+}
+
 func (o DevicesResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -79,6 +145,12 @@ func (o DevicesResponse) MarshalJSON() ([]byte, error) {
 func (o DevicesResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["data"] = o.Data
+	if !IsNil(o.Links) {
+		toSerialize["links"] = o.Links
+	}
+	if !IsNil(o.Meta) {
+		toSerialize["meta"] = o.Meta
+	}
 	return toSerialize, nil
 }
 

@@ -1510,6 +1510,25 @@
                 "type": "string"
               }
             }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "maximum resources per page",
+            "schema": {
+              "type": "integer",
+              "maximum": 200
+            },
+            "style": "form"
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "description": "pagination cursor from links.next",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -3481,6 +3500,12 @@
             "items": {
               "$ref": "#/components/schemas/Device"
             }
+          },
+          "links": {
+            "$ref": "#/components/schemas/PagedDocumentLinks"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PagingInformation"
           }
         },
         "required": [
