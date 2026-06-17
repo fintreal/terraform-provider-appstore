@@ -6,6 +6,7 @@ import (
 	appstore "github.com/fintreal/app-store-sdk-go"
 	"github.com/fintreal/terraform-provider-appstore/provider/bundleidentifier"
 	"github.com/fintreal/terraform-provider-appstore/provider/certificate"
+	"github.com/fintreal/terraform-provider-appstore/provider/device"
 	"github.com/fintreal/terraform-provider-appstore/provider/provisioningprofile"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
@@ -39,6 +40,7 @@ func Provider() *schema.Provider {
 		ResourcesMap: map[string]*schema.Resource{
 			"appstore_bundle_identifier":    bundleidentifier.Resource(),
 			"appstore_provisioning_profile": provisioningprofile.Resource(),
+			"appstore_device":               device.Resource(),
 		},
 		ConfigureContextFunc: func(ctx context.Context, d *schema.ResourceData) (any, diag.Diagnostics) {
 			appstoreKey := d.Get("appstore_key").(string)

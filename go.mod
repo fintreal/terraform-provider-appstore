@@ -51,3 +51,5 @@ require (
 	google.golang.org/protobuf v1.36.11 // indirect
 	gopkg.in/validator.v2 v2.0.1 // indirect
 )
+
+replace github.com/fintreal/app-store-sdk-go => ../app-store-sdk-go
