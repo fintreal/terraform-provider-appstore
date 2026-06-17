@@ -57,6 +57,8 @@ type APIClient struct {
 
 	CertificatesAPI *CertificatesAPIService
 
+	DevicesAPI *DevicesAPIService
+
 	ProfilesAPI *ProfilesAPIService
 }
 
@@ -80,6 +82,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.BundleIdCapabilitiesAPI = (*BundleIdCapabilitiesAPIService)(&c.common)
 	c.BundleIdsAPI = (*BundleIdsAPIService)(&c.common)
 	c.CertificatesAPI = (*CertificatesAPIService)(&c.common)
+	c.DevicesAPI = (*DevicesAPIService)(&c.common)
 	c.ProfilesAPI = (*ProfilesAPIService)(&c.common)
 
 	return c

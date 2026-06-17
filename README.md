@@ -94,6 +94,10 @@ Class | Method | HTTP request | Description
 *CertificatesAPI* | [**CertificatesGetCollection**](docs/CertificatesAPI.md#certificatesgetcollection) | **Get** /v1/certificates | 
 *CertificatesAPI* | [**CertificatesGetInstance**](docs/CertificatesAPI.md#certificatesgetinstance) | **Get** /v1/certificates/{id} | 
 *CertificatesAPI* | [**CertificatesUpdateInstance**](docs/CertificatesAPI.md#certificatesupdateinstance) | **Patch** /v1/certificates/{id} | 
+*DevicesAPI* | [**DevicesCreateInstance**](docs/DevicesAPI.md#devicescreateinstance) | **Post** /v1/devices | 
+*DevicesAPI* | [**DevicesGetCollection**](docs/DevicesAPI.md#devicesgetcollection) | **Get** /v1/devices | 
+*DevicesAPI* | [**DevicesGetInstance**](docs/DevicesAPI.md#devicesgetinstance) | **Get** /v1/devices/{id} | 
+*DevicesAPI* | [**DevicesUpdateInstance**](docs/DevicesAPI.md#devicesupdateinstance) | **Patch** /v1/devices/{id} | 
 *ProfilesAPI* | [**ProfilesCreateInstance**](docs/ProfilesAPI.md#profilescreateinstance) | **Post** /v1/profiles | 
 *ProfilesAPI* | [**ProfilesDeleteInstance**](docs/ProfilesAPI.md#profilesdeleteinstance) | **Delete** /v1/profiles/{id} | 
 *ProfilesAPI* | [**ProfilesGetCollection**](docs/ProfilesAPI.md#profilesgetcollection) | **Get** /v1/profiles | 
@@ -161,6 +165,14 @@ Class | Method | HTTP request | Description
  - [CertificatesResponse](docs/CertificatesResponse.md)
  - [Device](docs/Device.md)
  - [DeviceAttributes](docs/DeviceAttributes.md)
+ - [DeviceCreateRequest](docs/DeviceCreateRequest.md)
+ - [DeviceCreateRequestData](docs/DeviceCreateRequestData.md)
+ - [DeviceCreateRequestDataAttributes](docs/DeviceCreateRequestDataAttributes.md)
+ - [DeviceResponse](docs/DeviceResponse.md)
+ - [DeviceUpdateRequest](docs/DeviceUpdateRequest.md)
+ - [DeviceUpdateRequestData](docs/DeviceUpdateRequestData.md)
+ - [DeviceUpdateRequestDataAttributes](docs/DeviceUpdateRequestDataAttributes.md)
+ - [DevicesResponse](docs/DevicesResponse.md)
  - [DocumentLinks](docs/DocumentLinks.md)
  - [ErrorLinks](docs/ErrorLinks.md)
  - [ErrorLinksAssociated](docs/ErrorLinksAssociated.md)

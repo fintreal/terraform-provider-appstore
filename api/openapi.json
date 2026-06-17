@@ -364,14 +364,18 @@
         "operationId": "bundleIds_getInstance",
         "parameters": [
           {
-            "name" : "include",
-            "in" : "query",
-            "description" : "comma-separated list of relationships to include",
-            "schema" : {
-              "type" : "array",
-              "items" : {
-                "type" : "string",
-                "enum" : [ "profiles", "bundleIdCapabilities", "app" ]
+            "name": "include",
+            "in": "query",
+            "description": "comma-separated list of relationships to include",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "profiles",
+                  "bundleIdCapabilities",
+                  "app"
+                ]
               }
             }
           }
@@ -592,78 +596,80 @@
         }
       ]
     },
-    "/v1/bundleIdCapabilities" : {
-      "post" : {
-        "tags" : [ "BundleIdCapabilities" ],
-        "operationId" : "bundleIdCapabilities_createInstance",
-        "requestBody" : {
-          "description" : "BundleIdCapability representation",
-          "content" : {
-            "application/json" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/BundleIdCapabilityCreateRequest"
+    "/v1/bundleIdCapabilities": {
+      "post": {
+        "tags": [
+          "BundleIdCapabilities"
+        ],
+        "operationId": "bundleIdCapabilities_createInstance",
+        "requestBody": {
+          "description": "BundleIdCapability representation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BundleIdCapabilityCreateRequest"
               }
             }
           },
-          "required" : true
+          "required": true
         },
-        "responses" : {
-          "400" : {
-            "description" : "Parameter error(s)",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/ErrorResponse"
+        "responses": {
+          "400": {
+            "description": "Parameter error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
                 }
               }
             }
           },
-          "401" : {
-            "description" : "Unauthorized error(s)",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/ErrorResponse"
+          "401": {
+            "description": "Unauthorized error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
                 }
               }
             }
           },
-          "403" : {
-            "description" : "Forbidden error",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/ErrorResponse"
+          "403": {
+            "description": "Forbidden error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
                 }
               }
             }
           },
-          "422" : {
-            "description" : "Unprocessable request entity error(s)",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/ErrorResponse"
+          "422": {
+            "description": "Unprocessable request entity error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
                 }
               }
             }
           },
-          "201" : {
-            "description" : "Single BundleIdCapability",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/BundleIdCapabilityResponse"
+          "201": {
+            "description": "Single BundleIdCapability",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BundleIdCapabilityResponse"
                 }
               }
             }
           },
-          "409" : {
-            "description" : "Request entity error(s)",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/ErrorResponse"
+          "409": {
+            "description": "Request entity error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
                 }
               }
             }
@@ -671,163 +677,169 @@
         }
       }
     },
-    "/v1/bundleIdCapabilities/{id}" : {
-      "patch" : {
-        "tags" : [ "BundleIdCapabilities" ],
-        "operationId" : "bundleIdCapabilities_updateInstance",
-        "requestBody" : {
-          "description" : "BundleIdCapability representation",
-          "content" : {
-            "application/json" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/BundleIdCapabilityUpdateRequest"
+    "/v1/bundleIdCapabilities/{id}": {
+      "patch": {
+        "tags": [
+          "BundleIdCapabilities"
+        ],
+        "operationId": "bundleIdCapabilities_updateInstance",
+        "requestBody": {
+          "description": "BundleIdCapability representation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BundleIdCapabilityUpdateRequest"
               }
             }
           },
-          "required" : true
+          "required": true
         },
-        "responses" : {
-          "400" : {
-            "description" : "Parameter error(s)",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/ErrorResponse"
+        "responses": {
+          "400": {
+            "description": "Parameter error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
                 }
               }
             }
           },
-          "401" : {
-            "description" : "Unauthorized error(s)",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/ErrorResponse"
+          "401": {
+            "description": "Unauthorized error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
                 }
               }
             }
           },
-          "403" : {
-            "description" : "Forbidden error",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/ErrorResponse"
+          "403": {
+            "description": "Forbidden error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
                 }
               }
             }
           },
-          "404" : {
-            "description" : "Not found error",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/ErrorResponse"
+          "404": {
+            "description": "Not found error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
                 }
               }
             }
           },
-          "422" : {
-            "description" : "Unprocessable request entity error(s)",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/ErrorResponse"
+          "422": {
+            "description": "Unprocessable request entity error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
                 }
               }
             }
           },
-          "200" : {
-            "description" : "Single BundleIdCapability",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/BundleIdCapabilityResponse"
+          "200": {
+            "description": "Single BundleIdCapability",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BundleIdCapabilityResponse"
                 }
               }
             }
           },
-          "409" : {
-            "description" : "Request entity error(s)",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/ErrorResponse"
+          "409": {
+            "description": "Request entity error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
                 }
               }
             }
           }
         }
       },
-      "delete" : {
-        "tags" : [ "BundleIdCapabilities" ],
-        "operationId" : "bundleIdCapabilities_deleteInstance",
-        "responses" : {
-          "400" : {
-            "description" : "Parameter error(s)",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/ErrorResponse"
+      "delete": {
+        "tags": [
+          "BundleIdCapabilities"
+        ],
+        "operationId": "bundleIdCapabilities_deleteInstance",
+        "responses": {
+          "400": {
+            "description": "Parameter error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
                 }
               }
             }
           },
-          "401" : {
-            "description" : "Unauthorized error(s)",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/ErrorResponse"
+          "401": {
+            "description": "Unauthorized error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
                 }
               }
             }
           },
-          "403" : {
-            "description" : "Forbidden error",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/ErrorResponse"
+          "403": {
+            "description": "Forbidden error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
                 }
               }
             }
           },
-          "404" : {
-            "description" : "Not found error",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/ErrorResponse"
+          "404": {
+            "description": "Not found error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
                 }
               }
             }
           },
-          "409" : {
-            "description" : "Request entity error(s)",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/ErrorResponse"
+          "409": {
+            "description": "Request entity error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
                 }
               }
             }
           },
-          "204" : {
-            "description" : "Success (no content)"
+          "204": {
+            "description": "Success (no content)"
           }
         }
       },
-      "parameters" : [ {
-        "name" : "id",
-        "in" : "path",
-        "description" : "the id of the requested resource",
-        "schema" : {
-          "type" : "string"
-        },
-        "style" : "simple",
-        "required" : true
-      } ]
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "the id of the requested resource",
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple",
+          "required": true
+        }
+      ]
     },
     "/v1/certificates": {
       "get": {
@@ -835,20 +847,22 @@
           "Certificates"
         ],
         "operationId": "certificates_getCollection",
-        "parameters": [{
-          "name" : "filter[serialNumber]",
-          "in" : "query",
-          "description" : "filter by attribute 'serialNumber'",
-          "schema" : {
-            "type" : "array",
-            "items" : {
-              "type" : "string"
-            }
-          },
-          "style" : "form",
-          "explode" : false,
-          "required" : false
-        }],
+        "parameters": [
+          {
+            "name": "filter[serialNumber]",
+            "in": "query",
+            "description": "filter by attribute 'serialNumber'",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "style": "form",
+            "explode": false,
+            "required": false
+          }
+        ],
         "responses": {
           "400": {
             "description": "Parameter error(s)",
@@ -1333,19 +1347,23 @@
         "operationId": "profiles_getInstance",
         "parameters": [
           {
-            "name" : "include",
-            "in" : "query",
-            "description" : "comma-separated list of relationships to include",
-            "schema" : {
-              "type" : "array",
-              "items" : {
-                "type" : "string",
-                "enum" : [ "bundleId", "devices", "certificates" ]
+            "name": "include",
+            "in": "query",
+            "description": "comma-separated list of relationships to include",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "bundleId",
+                  "devices",
+                  "certificates"
+                ]
               }
             },
-            "style" : "form",
-            "explode" : false,
-            "required" : false
+            "style": "form",
+            "explode": false,
+            "required": false
           }
         ],
         "responses": {
@@ -1459,6 +1477,309 @@
           },
           "204": {
             "description": "Success (no content)"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "the id of the requested resource",
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple",
+          "required": true
+        }
+      ]
+    },
+    "/v1/devices": {
+      "get": {
+        "tags": [
+          "Devices"
+        ],
+        "operationId": "devices_getCollection",
+        "parameters": [
+          {
+            "name": "filter[udid]",
+            "in": "query",
+            "description": "filter by device UDID",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Parameter error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "List of Devices",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DevicesResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Devices"
+        ],
+        "operationId": "devices_createInstance",
+        "requestBody": {
+          "description": "Device representation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceCreateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "400": {
+            "description": "Parameter error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable request entity error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Request entity error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Single Device",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/devices/{id}": {
+      "get": {
+        "tags": [
+          "Devices"
+        ],
+        "operationId": "devices_getInstance",
+        "responses": {
+          "400": {
+            "description": "Parameter error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Single Device",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Devices"
+        ],
+        "operationId": "devices_updateInstance",
+        "requestBody": {
+          "description": "Device representation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceUpdateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "400": {
+            "description": "Parameter error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable request entity error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Request entity error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Single Device",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceResponse"
+                }
+              }
+            }
           }
         }
       },
@@ -1653,81 +1974,96 @@
               "seedId"
             ]
           },
-          "relationships" : {
-            "type" : "object",
-            "properties" : {
-              "profiles" : {
-                "type" : "object",
-                "properties" : {
-                  "links" : {
-                    "$ref" : "#/components/schemas/RelationshipLinks"
+          "relationships": {
+            "type": "object",
+            "properties": {
+              "profiles": {
+                "type": "object",
+                "properties": {
+                  "links": {
+                    "$ref": "#/components/schemas/RelationshipLinks"
                   },
-                  "meta" : {
-                    "$ref" : "#/components/schemas/PagingInformation"
+                  "meta": {
+                    "$ref": "#/components/schemas/PagingInformation"
                   },
-                  "data" : {
-                    "type" : "array",
-                    "items" : {
-                      "type" : "object",
-                      "properties" : {
-                        "type" : {
-                          "type" : "string",
-                          "enum" : [ "profiles" ]
+                  "data": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "enum": [
+                            "profiles"
+                          ]
                         },
-                        "id" : {
-                          "type" : "string"
+                        "id": {
+                          "type": "string"
                         }
                       },
-                      "required" : [ "id", "type" ]
+                      "required": [
+                        "id",
+                        "type"
+                      ]
                     }
                   }
                 }
               },
-              "bundleIdCapabilities" : {
-                "type" : "object",
-                "properties" : {
-                  "links" : {
-                    "$ref" : "#/components/schemas/RelationshipLinks"
+              "bundleIdCapabilities": {
+                "type": "object",
+                "properties": {
+                  "links": {
+                    "$ref": "#/components/schemas/RelationshipLinks"
                   },
-                  "meta" : {
-                    "$ref" : "#/components/schemas/PagingInformation"
+                  "meta": {
+                    "$ref": "#/components/schemas/PagingInformation"
                   },
-                  "data" : {
-                    "type" : "array",
-                    "items" : {
-                      "type" : "object",
-                      "properties" : {
-                        "type" : {
-                          "type" : "string",
-                          "enum" : [ "bundleIdCapabilities" ]
+                  "data": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "enum": [
+                            "bundleIdCapabilities"
+                          ]
                         },
-                        "id" : {
-                          "type" : "string"
+                        "id": {
+                          "type": "string"
                         }
                       },
-                      "required" : [ "id", "type" ]
+                      "required": [
+                        "id",
+                        "type"
+                      ]
                     }
                   }
                 }
               },
-              "app" : {
-                "type" : "object",
-                "properties" : {
-                  "links" : {
-                    "$ref" : "#/components/schemas/RelationshipLinks"
+              "app": {
+                "type": "object",
+                "properties": {
+                  "links": {
+                    "$ref": "#/components/schemas/RelationshipLinks"
                   },
-                  "data" : {
-                    "type" : "object",
-                    "properties" : {
-                      "type" : {
-                        "type" : "string",
-                        "enum" : [ "apps" ]
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "apps"
+                        ]
                       },
-                      "id" : {
-                        "type" : "string"
+                      "id": {
+                        "type": "string"
                       }
                     },
-                    "required" : [ "id", "type" ]
+                    "required": [
+                      "id",
+                      "type"
+                    ]
                   }
                 }
               }
@@ -1880,225 +2216,311 @@
           "data"
         ]
       },
-      "BundleIdCapability" : {
-        "type" : "object",
-        "title" : "BundleIdCapability",
-        "properties" : {
-          "type" : {
-            "type" : "string",
-            "enum" : [ "bundleIdCapabilities" ]
+      "BundleIdCapability": {
+        "type": "object",
+        "title": "BundleIdCapability",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "bundleIdCapabilities"
+            ]
           },
-          "id" : {
-            "type" : "string"
+          "id": {
+            "type": "string"
           },
-          "attributes" : {
-            "type" : "object",
-            "properties" : {
-              "capabilityType" : {
-                "$ref" : "#/components/schemas/CapabilityType"
+          "attributes": {
+            "type": "object",
+            "properties": {
+              "capabilityType": {
+                "$ref": "#/components/schemas/CapabilityType"
               },
-              "settings" : {
-                "type" : "array",
-                "items" : {
-                  "$ref" : "#/components/schemas/CapabilitySetting"
+              "settings": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CapabilitySetting"
                 }
               }
             }
           },
-          "links" : {
-            "$ref" : "#/components/schemas/ResourceLinks"
+          "links": {
+            "$ref": "#/components/schemas/ResourceLinks"
           }
         },
-        "required" : [ "id", "type" ]
+        "required": [
+          "id",
+          "type"
+        ]
       },
-      "BundleIdCapabilitiesResponse" : {
-        "type" : "object",
-        "title" : "BundleIdCapabilitiesResponse",
-        "properties" : {
-          "data" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/BundleIdCapability"
+      "BundleIdCapabilitiesResponse": {
+        "type": "object",
+        "title": "BundleIdCapabilitiesResponse",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BundleIdCapability"
             }
           },
-          "links" : {
-            "$ref" : "#/components/schemas/PagedDocumentLinks"
+          "links": {
+            "$ref": "#/components/schemas/PagedDocumentLinks"
           },
-          "meta" : {
-            "$ref" : "#/components/schemas/PagingInformation"
+          "meta": {
+            "$ref": "#/components/schemas/PagingInformation"
           }
         },
-        "required" : [ "data", "links" ]
+        "required": [
+          "data",
+          "links"
+        ]
       },
-      "BundleIdCapabilityResponse" : {
-        "type" : "object",
-        "title" : "BundleIdCapabilityResponse",
-        "properties" : {
-          "data" : {
-            "$ref" : "#/components/schemas/BundleIdCapability"
+      "BundleIdCapabilityResponse": {
+        "type": "object",
+        "title": "BundleIdCapabilityResponse",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/BundleIdCapability"
           },
-          "links" : {
-            "$ref" : "#/components/schemas/DocumentLinks"
+          "links": {
+            "$ref": "#/components/schemas/DocumentLinks"
           }
         },
-        "required" : [ "data", "links" ]
+        "required": [
+          "data",
+          "links"
+        ]
       },
-      "BundleIdCapabilityCreateRequest" : {
-        "type" : "object",
-        "title" : "BundleIdCapabilityCreateRequest",
-        "properties" : {
-          "data" : {
-            "type" : "object",
-            "properties" : {
-              "type" : {
-                "type" : "string",
-                "enum" : [ "bundleIdCapabilities" ]
+      "BundleIdCapabilityCreateRequest": {
+        "type": "object",
+        "title": "BundleIdCapabilityCreateRequest",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "bundleIdCapabilities"
+                ]
               },
-              "attributes" : {
-                "type" : "object",
-                "properties" : {
-                  "capabilityType" : {
-                    "$ref" : "#/components/schemas/CapabilityType"
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "capabilityType": {
+                    "$ref": "#/components/schemas/CapabilityType"
                   },
-                  "settings" : {
-                    "type" : "array",
-                    "items" : {
-                      "$ref" : "#/components/schemas/CapabilitySetting"
+                  "settings": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/CapabilitySetting"
                     }
                   }
                 },
-                "required" : [ "capabilityType", "settings" ]
+                "required": [
+                  "capabilityType",
+                  "settings"
+                ]
               },
-              "relationships" : {
-                "type" : "object",
-                "properties" : {
-                  "bundleId" : {
-                    "type" : "object",
-                    "properties" : {
-                      "data" : {
-                        "type" : "object",
-                        "properties" : {
-                          "type" : {
-                            "type" : "string",
-                            "enum" : [ "bundleIds" ]
+              "relationships": {
+                "type": "object",
+                "properties": {
+                  "bundleId": {
+                    "type": "object",
+                    "properties": {
+                      "data": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "bundleIds"
+                            ]
                           },
-                          "id" : {
-                            "type" : "string"
+                          "id": {
+                            "type": "string"
                           }
                         },
-                        "required" : [ "id", "type" ]
+                        "required": [
+                          "id",
+                          "type"
+                        ]
                       }
                     },
-                    "required" : [ "data" ]
+                    "required": [
+                      "data"
+                    ]
                   }
                 },
-                "required" : [ "bundleId" ]
+                "required": [
+                  "bundleId"
+                ]
               }
             },
-            "required" : [ "relationships", "attributes", "type" ]
+            "required": [
+              "relationships",
+              "attributes",
+              "type"
+            ]
           }
         },
-        "required" : [ "data" ]
+        "required": [
+          "data"
+        ]
       },
-      "BundleIdCapabilityUpdateRequest" : {
-        "type" : "object",
-        "title" : "BundleIdCapabilityUpdateRequest",
-        "properties" : {
-          "data" : {
-            "type" : "object",
-            "properties" : {
-              "type" : {
-                "type" : "string",
-                "enum" : [ "bundleIdCapabilities" ]
+      "BundleIdCapabilityUpdateRequest": {
+        "type": "object",
+        "title": "BundleIdCapabilityUpdateRequest",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "bundleIdCapabilities"
+                ]
               },
-              "id" : {
-                "type" : "string"
+              "id": {
+                "type": "string"
               },
-              "attributes" : {
-                "type" : "object",
-                "properties" : {
-                  "capabilityType" : {
-                    "$ref" : "#/components/schemas/CapabilityType"
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "capabilityType": {
+                    "$ref": "#/components/schemas/CapabilityType"
                   },
-                  "settings" : {
-                    "type" : "array",
-                    "items" : {
-                      "$ref" : "#/components/schemas/CapabilitySetting"
+                  "settings": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/CapabilitySetting"
                     }
                   }
                 }
               }
             },
-            "required" : [ "id", "type" ]
+            "required": [
+              "id",
+              "type"
+            ]
           }
         },
-        "required" : [ "data" ]
+        "required": [
+          "data"
+        ]
       },
-      "BundleIdPlatform" : {
-        "type" : "string",
-        "enum" : [ "IOS", "MAC_OS", "UNIVERSAL" ]
+      "BundleIdPlatform": {
+        "type": "string",
+        "enum": [
+          "IOS",
+          "MAC_OS",
+          "UNIVERSAL"
+        ]
       },
-      "CapabilitySetting" : {
-        "type" : "object",
-        "properties" : {
-          "key" : {
-            "type" : "string",
-            "enum" : [ "ICLOUD_VERSION", "DATA_PROTECTION_PERMISSION_LEVEL", "APPLE_ID_AUTH_APP_CONSENT" ]
+      "CapabilitySetting": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "enum": [
+              "ICLOUD_VERSION",
+              "DATA_PROTECTION_PERMISSION_LEVEL",
+              "APPLE_ID_AUTH_APP_CONSENT"
+            ]
           },
-          "name" : {
-            "type" : "string"
+          "name": {
+            "type": "string"
           },
-          "description" : {
-            "type" : "string"
+          "description": {
+            "type": "string"
           },
-          "enabledByDefault" : {
-            "type" : "boolean"
+          "enabledByDefault": {
+            "type": "boolean"
           },
-          "visible" : {
-            "type" : "boolean"
+          "visible": {
+            "type": "boolean"
           },
-          "allowedInstances" : {
-            "type" : "string",
-            "enum" : [ "ENTRY", "SINGLE", "MULTIPLE" ]
+          "allowedInstances": {
+            "type": "string",
+            "enum": [
+              "ENTRY",
+              "SINGLE",
+              "MULTIPLE"
+            ]
           },
-          "minInstances" : {
-            "type" : "integer"
+          "minInstances": {
+            "type": "integer"
           },
-          "options" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/CapabilityOption"
+          "options": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CapabilityOption"
             }
           }
         }
       },
-      "CapabilityOption" : {
-        "type" : "object",
-        "properties" : {
-          "key" : {
-            "type" : "string",
-            "enum" : [ "XCODE_5", "XCODE_6", "COMPLETE_PROTECTION", "PROTECTED_UNLESS_OPEN", "PROTECTED_UNTIL_FIRST_USER_AUTH", "PRIMARY_APP_CONSENT" ]
+      "CapabilityOption": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "enum": [
+              "XCODE_5",
+              "XCODE_6",
+              "COMPLETE_PROTECTION",
+              "PROTECTED_UNLESS_OPEN",
+              "PROTECTED_UNTIL_FIRST_USER_AUTH",
+              "PRIMARY_APP_CONSENT"
+            ]
           },
-          "name" : {
-            "type" : "string"
+          "name": {
+            "type": "string"
           },
-          "description" : {
-            "type" : "string"
+          "description": {
+            "type": "string"
           },
-          "enabledByDefault" : {
-            "type" : "boolean"
+          "enabledByDefault": {
+            "type": "boolean"
           },
-          "enabled" : {
-            "type" : "boolean"
+          "enabled": {
+            "type": "boolean"
           },
-          "supportsWildcard" : {
-            "type" : "boolean"
+          "supportsWildcard": {
+            "type": "boolean"
           }
         }
       },
-      "CapabilityType" : {
-        "type" : "string",
-        "enum" : [ "ICLOUD", "IN_APP_PURCHASE", "GAME_CENTER", "PUSH_NOTIFICATIONS", "WALLET", "INTER_APP_AUDIO", "MAPS", "ASSOCIATED_DOMAINS", "PERSONAL_VPN", "APP_GROUPS", "HEALTHKIT", "HOMEKIT", "WIRELESS_ACCESSORY_CONFIGURATION", "APPLE_PAY", "DATA_PROTECTION", "SIRIKIT", "NETWORK_EXTENSIONS", "MULTIPATH", "HOT_SPOT", "NFC_TAG_READING", "CLASSKIT", "AUTOFILL_CREDENTIAL_PROVIDER", "ACCESS_WIFI_INFORMATION", "NETWORK_CUSTOM_PROTOCOL", "COREMEDIA_HLS_LOW_LATENCY", "SYSTEM_EXTENSION_INSTALL", "USER_MANAGEMENT", "APPLE_ID_AUTH" ]
+      "CapabilityType": {
+        "type": "string",
+        "enum": [
+          "ICLOUD",
+          "IN_APP_PURCHASE",
+          "GAME_CENTER",
+          "PUSH_NOTIFICATIONS",
+          "WALLET",
+          "INTER_APP_AUDIO",
+          "MAPS",
+          "ASSOCIATED_DOMAINS",
+          "PERSONAL_VPN",
+          "APP_GROUPS",
+          "HEALTHKIT",
+          "HOMEKIT",
+          "WIRELESS_ACCESSORY_CONFIGURATION",
+          "APPLE_PAY",
+          "DATA_PROTECTION",
+          "SIRIKIT",
+          "NETWORK_EXTENSIONS",
+          "MULTIPATH",
+          "HOT_SPOT",
+          "NFC_TAG_READING",
+          "CLASSKIT",
+          "AUTOFILL_CREDENTIAL_PROVIDER",
+          "ACCESS_WIFI_INFORMATION",
+          "NETWORK_CUSTOM_PROTOCOL",
+          "COREMEDIA_HLS_LOW_LATENCY",
+          "SYSTEM_EXTENSION_INSTALL",
+          "USER_MANAGEMENT",
+          "APPLE_ID_AUTH"
+        ]
       },
       "Certificate": {
         "type": "object",
@@ -2320,65 +2742,80 @@
               }
             }
           },
-          "relationships" : {
-            "type" : "object",
-            "properties" : {
-              "bundleId" : {
-                "type" : "object",
-                "properties" : {
-                  "data" : {
-                    "type" : "object",
-                    "properties" : {
-                      "type" : {
-                        "type" : "string",
-                        "enum" : [ "bundleIds" ]
+          "relationships": {
+            "type": "object",
+            "properties": {
+              "bundleId": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "bundleIds"
+                        ]
                       },
-                      "id" : {
-                        "type" : "string"
+                      "id": {
+                        "type": "string"
                       }
                     },
-                    "required" : [ "id", "type" ]
+                    "required": [
+                      "id",
+                      "type"
+                    ]
                   }
                 }
               },
-              "devices" : {
-                "type" : "object",
-                "properties" : {
-                  "data" : {
-                    "type" : "array",
-                    "items" : {
-                      "type" : "object",
-                      "properties" : {
-                        "type" : {
-                          "type" : "string",
-                          "enum" : [ "devices" ]
+              "devices": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "enum": [
+                            "devices"
+                          ]
                         },
-                        "id" : {
-                          "type" : "string"
+                        "id": {
+                          "type": "string"
                         }
                       },
-                      "required" : [ "id", "type" ]
+                      "required": [
+                        "id",
+                        "type"
+                      ]
                     }
                   }
                 }
               },
-              "certificates" : {
-                "type" : "object",
-                "properties" : {
-                  "data" : {
-                    "type" : "array",
-                    "items" : {
-                      "type" : "object",
-                      "properties" : {
-                        "type" : {
-                          "type" : "string",
-                          "enum" : [ "certificates" ]
+              "certificates": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "enum": [
+                            "certificates"
+                          ]
                         },
-                        "id" : {
-                          "type" : "string"
+                        "id": {
+                          "type": "string"
                         }
                       },
-                      "required" : [ "id", "type" ]
+                      "required": [
+                        "id",
+                        "type"
+                      ]
                     }
                   }
                 }
@@ -2429,16 +2866,20 @@
           "data": {
             "$ref": "#/components/schemas/Profile"
           },
-          "included" : {
-            "type" : "array",
-            "items" : {
-              "anyOf" : [ {
-                "$ref" : "#/components/schemas/BundleId"
-              }, {
-                "$ref" : "#/components/schemas/Device"
-              }, {
-                "$ref" : "#/components/schemas/Certificate"
-              } ],
+          "included": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/BundleId"
+                },
+                {
+                  "$ref": "#/components/schemas/Device"
+                },
+                {
+                  "$ref": "#/components/schemas/Certificate"
+                }
+              ],
               "discriminator": {
                 "propertyName": "type",
                 "mapping": {
@@ -2651,209 +3092,407 @@
           }
         }
       },
-      "ErrorLinks" : {
-        "type" : "object",
-        "properties" : {
-          "about" : {
-            "type" : "string",
-            "format" : "uri-reference"
+      "ErrorLinks": {
+        "type": "object",
+        "properties": {
+          "about": {
+            "type": "string",
+            "format": "uri-reference"
           },
-          "associated" : {
-            "oneOf" : [ {
-              "type" : "string",
-              "format" : "uri-reference"
-            }, {
-              "type" : "object",
-              "properties" : {
-                "href" : {
-                  "type" : "string",
-                  "format" : "uri-reference"
-                },
-                "meta" : {
-                  "type" : "object",
-                  "properties" : {
-                    "source" : {
-                      "type" : "string"
+          "associated": {
+            "oneOf": [
+              {
+                "type": "string",
+                "format": "uri-reference"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "href": {
+                    "type": "string",
+                    "format": "uri-reference"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "source": {
+                        "type": "string"
+                      }
                     }
                   }
                 }
               }
-            } ]
+            ]
           }
         }
       },
-      "ErrorSourceParameter" : {
-        "type" : "object",
-        "title" : "Parameter",
-        "properties" : {
-          "parameter" : {
-            "type" : "string"
+      "ErrorSourceParameter": {
+        "type": "object",
+        "title": "Parameter",
+        "properties": {
+          "parameter": {
+            "type": "string"
           }
         },
-        "required" : [ "parameter" ]
+        "required": [
+          "parameter"
+        ]
       },
-      "ErrorSourcePointer" : {
-        "type" : "object",
-        "title" : "JsonPointer",
-        "properties" : {
-          "pointer" : {
-            "type" : "string"
+      "ErrorSourcePointer": {
+        "type": "object",
+        "title": "JsonPointer",
+        "properties": {
+          "pointer": {
+            "type": "string"
           }
         },
-        "required" : [ "pointer" ]
+        "required": [
+          "pointer"
+        ]
       },
-      "CertificateType" : {
-        "type" : "string",
-        "enum" : [ "APPLE_PAY", "APPLE_PAY_MERCHANT_IDENTITY", "APPLE_PAY_PSP_IDENTITY", "APPLE_PAY_RSA", "DEVELOPER_ID_KEXT", "DEVELOPER_ID_KEXT_G2", "DEVELOPER_ID_APPLICATION", "DEVELOPER_ID_APPLICATION_G2", "DEVELOPMENT", "DISTRIBUTION", "IDENTITY_ACCESS", "IOS_DEVELOPMENT", "IOS_DISTRIBUTION", "MAC_APP_DISTRIBUTION", "MAC_INSTALLER_DISTRIBUTION", "MAC_APP_DEVELOPMENT", "PASS_TYPE_ID", "PASS_TYPE_ID_WITH_NFC" ]
+      "CertificateType": {
+        "type": "string",
+        "enum": [
+          "APPLE_PAY",
+          "APPLE_PAY_MERCHANT_IDENTITY",
+          "APPLE_PAY_PSP_IDENTITY",
+          "APPLE_PAY_RSA",
+          "DEVELOPER_ID_KEXT",
+          "DEVELOPER_ID_KEXT_G2",
+          "DEVELOPER_ID_APPLICATION",
+          "DEVELOPER_ID_APPLICATION_G2",
+          "DEVELOPMENT",
+          "DISTRIBUTION",
+          "IDENTITY_ACCESS",
+          "IOS_DEVELOPMENT",
+          "IOS_DISTRIBUTION",
+          "MAC_APP_DISTRIBUTION",
+          "MAC_INSTALLER_DISTRIBUTION",
+          "MAC_APP_DEVELOPMENT",
+          "PASS_TYPE_ID",
+          "PASS_TYPE_ID_WITH_NFC"
+        ]
       },
-      "Device" : {
-        "type" : "object",
-        "title" : "Device",
-        "properties" : {
-          "type" : {
-            "type" : "string",
-            "enum" : [ "devices" ]
+      "Device": {
+        "type": "object",
+        "title": "Device",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "devices"
+            ]
           },
-          "id" : {
-            "type" : "string"
+          "id": {
+            "type": "string"
           },
-          "attributes" : {
-            "type" : "object",
-            "properties" : {
-              "name" : {
-                "type" : "string"
+          "attributes": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
               },
-              "platform" : {
-                "$ref" : "#/components/schemas/BundleIdPlatform"
+              "platform": {
+                "$ref": "#/components/schemas/BundleIdPlatform"
               },
-              "udid" : {
-                "type" : "string"
+              "udid": {
+                "type": "string"
               },
-              "deviceClass" : {
-                "type" : "string",
-                "enum" : [ "APPLE_WATCH", "IPAD", "IPHONE", "IPOD", "APPLE_TV", "MAC" ]
+              "deviceClass": {
+                "type": "string",
+                "enum": [
+                  "APPLE_WATCH",
+                  "IPAD",
+                  "IPHONE",
+                  "IPOD",
+                  "APPLE_TV",
+                  "MAC"
+                ]
               },
-              "status" : {
-                "type" : "string",
-                "enum" : [ "ENABLED", "DISABLED" ]
+              "status": {
+                "type": "string",
+                "enum": [
+                  "ENABLED",
+                  "DISABLED"
+                ]
               },
-              "model" : {
-                "type" : "string"
+              "model": {
+                "type": "string"
               },
-              "addedDate" : {
-                "type" : "string",
-                "format" : "date-time"
+              "addedDate": {
+                "type": "string",
+                "format": "date-time"
               }
             }
           }
         },
-        "required" : [ "id", "type" ]
+        "required": [
+          "id",
+          "type"
+        ]
       },
-      "AppStoreVersionState" : {
-        "type" : "string",
-        "enum" : [ "ACCEPTED", "DEVELOPER_REMOVED_FROM_SALE", "DEVELOPER_REJECTED", "IN_REVIEW", "INVALID_BINARY", "METADATA_REJECTED", "PENDING_APPLE_RELEASE", "PENDING_CONTRACT", "PENDING_DEVELOPER_RELEASE", "PREPARE_FOR_SUBMISSION", "PREORDER_READY_FOR_SALE", "PROCESSING_FOR_APP_STORE", "READY_FOR_REVIEW", "READY_FOR_SALE", "REJECTED", "REMOVED_FROM_SALE", "WAITING_FOR_EXPORT_COMPLIANCE", "WAITING_FOR_REVIEW", "REPLACED_WITH_NEW_VERSION", "NOT_APPLICABLE" ]
+      "AppStoreVersionState": {
+        "type": "string",
+        "enum": [
+          "ACCEPTED",
+          "DEVELOPER_REMOVED_FROM_SALE",
+          "DEVELOPER_REJECTED",
+          "IN_REVIEW",
+          "INVALID_BINARY",
+          "METADATA_REJECTED",
+          "PENDING_APPLE_RELEASE",
+          "PENDING_CONTRACT",
+          "PENDING_DEVELOPER_RELEASE",
+          "PREPARE_FOR_SUBMISSION",
+          "PREORDER_READY_FOR_SALE",
+          "PROCESSING_FOR_APP_STORE",
+          "READY_FOR_REVIEW",
+          "READY_FOR_SALE",
+          "REJECTED",
+          "REMOVED_FROM_SALE",
+          "WAITING_FOR_EXPORT_COMPLIANCE",
+          "WAITING_FOR_REVIEW",
+          "REPLACED_WITH_NEW_VERSION",
+          "NOT_APPLICABLE"
+        ]
       },
-      "AppInfo" : {
-        "type" : "object",
-        "title" : "AppInfo",
-        "properties" : {
-          "type" : {
-            "type" : "string",
-            "enum" : [ "appInfos" ]
+      "AppInfo": {
+        "type": "object",
+        "title": "AppInfo",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "appInfos"
+            ]
           },
-          "id" : {
-            "type" : "string"
+          "id": {
+            "type": "string"
           },
-          "attributes" : {
-            "type" : "object",
-            "properties" : {
-              "appStoreState" : {
-                "deprecated" : true,
-                "$ref" : "#/components/schemas/AppStoreVersionState"
+          "attributes": {
+            "type": "object",
+            "properties": {
+              "appStoreState": {
+                "deprecated": true,
+                "$ref": "#/components/schemas/AppStoreVersionState"
               },
-              "state" : {
-                "type" : "string",
-                "enum" : [ "ACCEPTED", "DEVELOPER_REJECTED", "IN_REVIEW", "PENDING_RELEASE", "PREPARE_FOR_SUBMISSION", "READY_FOR_DISTRIBUTION", "READY_FOR_REVIEW", "REJECTED", "REPLACED_WITH_NEW_INFO", "WAITING_FOR_REVIEW" ]
+              "state": {
+                "type": "string",
+                "enum": [
+                  "ACCEPTED",
+                  "DEVELOPER_REJECTED",
+                  "IN_REVIEW",
+                  "PENDING_RELEASE",
+                  "PREPARE_FOR_SUBMISSION",
+                  "READY_FOR_DISTRIBUTION",
+                  "READY_FOR_REVIEW",
+                  "REJECTED",
+                  "REPLACED_WITH_NEW_INFO",
+                  "WAITING_FOR_REVIEW"
+                ]
               }
             }
           }
         },
-        "required" : [ "id", "type" ]
+        "required": [
+          "id",
+          "type"
+        ]
       },
-      "ResourceLinks" : {
-        "type" : "object",
-        "properties" : {
-          "self" : {
-            "type" : "string",
-            "format" : "uri-reference"
+      "ResourceLinks": {
+        "type": "object",
+        "properties": {
+          "self": {
+            "type": "string",
+            "format": "uri-reference"
           }
         }
       },
-      "RelationshipLinks" : {
-        "type" : "object",
-        "properties" : {
-          "self" : {
-            "type" : "string",
-            "format" : "uri-reference"
+      "RelationshipLinks": {
+        "type": "object",
+        "properties": {
+          "self": {
+            "type": "string",
+            "format": "uri-reference"
           },
-          "related" : {
-            "type" : "string",
-            "format" : "uri-reference"
+          "related": {
+            "type": "string",
+            "format": "uri-reference"
           }
         }
       },
-      "PagingInformation" : {
-        "type" : "object",
-        "properties" : {
-          "paging" : {
-            "type" : "object",
-            "properties" : {
-              "total" : {
-                "type" : "integer"
+      "PagingInformation": {
+        "type": "object",
+        "properties": {
+          "paging": {
+            "type": "object",
+            "properties": {
+              "total": {
+                "type": "integer"
               },
-              "limit" : {
-                "type" : "integer"
+              "limit": {
+                "type": "integer"
               }
             },
-            "required" : [ "limit" ]
+            "required": [
+              "limit"
+            ]
           }
         },
-        "required" : [ "paging" ]
+        "required": [
+          "paging"
+        ]
       },
-      "DocumentLinks" : {
-        "type" : "object",
-        "properties" : {
-          "self" : {
-            "type" : "string",
-            "format" : "uri-reference"
+      "DocumentLinks": {
+        "type": "object",
+        "properties": {
+          "self": {
+            "type": "string",
+            "format": "uri-reference"
           }
         },
-        "required" : [ "self" ]
+        "required": [
+          "self"
+        ]
       },
-      "PagedDocumentLinks" : {
-        "type" : "object",
-        "properties" : {
-          "self" : {
-            "type" : "string",
-            "format" : "uri-reference"
+      "PagedDocumentLinks": {
+        "type": "object",
+        "properties": {
+          "self": {
+            "type": "string",
+            "format": "uri-reference"
           },
-          "first" : {
-            "type" : "string",
-            "format" : "uri-reference"
+          "first": {
+            "type": "string",
+            "format": "uri-reference"
           },
-          "next" : {
-            "type" : "string",
-            "format" : "uri-reference"
+          "next": {
+            "type": "string",
+            "format": "uri-reference"
           }
         },
-        "required" : [ "self" ]
+        "required": [
+          "self"
+        ]
+      },
+      "DeviceCreateRequest": {
+        "type": "object",
+        "title": "DeviceCreateRequest",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "devices"
+                ]
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "platform": {
+                    "$ref": "#/components/schemas/BundleIdPlatform"
+                  },
+                  "udid": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "platform",
+                  "udid"
+                ]
+              }
+            },
+            "required": [
+              "attributes",
+              "type"
+            ]
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "DeviceUpdateRequest": {
+        "type": "object",
+        "title": "DeviceUpdateRequest",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "devices"
+                ]
+              },
+              "id": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "ENABLED",
+                      "DISABLED"
+                    ]
+                  }
+                }
+              }
+            },
+            "required": [
+              "id",
+              "type"
+            ]
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "DeviceResponse": {
+        "type": "object",
+        "title": "DeviceResponse",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Device"
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "DevicesResponse": {
+        "type": "object",
+        "title": "DevicesResponse",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Device"
+            }
+          }
+        },
+        "required": [
+          "data"
+        ]
       }
     },
-    "securitySchemes" : {
-      "itc-bearer-token" : {
-        "type" : "http",
-        "scheme" : "bearer",
-        "bearerFormat" : "JWT"
+    "securitySchemes": {
+      "itc-bearer-token": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
       }
     }
   },
