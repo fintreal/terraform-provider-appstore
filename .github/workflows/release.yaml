@@ -6,9 +6,28 @@ on:
       - main
 
 jobs:
+  verify:
+    name: Verify
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: stable
+
+      - name: Build
+        run: go build ./...
+
+      - name: Vet
+        run: go vet ./...
+
   release:
     name: Release
     runs-on: ubuntu-latest
+    needs: [verify]
     permissions:
       contents: write
     steps:

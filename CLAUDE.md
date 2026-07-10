@@ -7,7 +7,7 @@ Go SDK for the Apple App Store Connect API (v3.8.0), generated with OpenAPI Gene
 
 ## Tech Stack
 
-- Go 1.23+ (CI uses 1.24.1)
+- Go 1.25+ (CI builds/releases with the latest stable Go)
 - OpenAPI Generator 7.16.0 (code generation)
 - `github.com/golang-jwt/jwt/v5` (JWT auth)
 - `gopkg.in/validator.v2` (validation)
