@@ -18,9 +18,9 @@ resource "appstore_provisioning_profile" "this" {
   name       = "Terraform Test Provisioning Profile"
   bundle_identifier_id = appstore_bundle_identifier.this.id
   type = "IOS_APP_STORE"
-  certificate_ids = ["JVLG7LVRRL"]
+  certificate_ids = ["64A2UF5HD4"]
 }
 
 data "appstore_certificate" "this" {
-  serial_number = "3D986E25FF1B48C2417853A07AA15C55"
+  serial_number = "6AB7A99542D0D58517914E6EA8119579"
 }
