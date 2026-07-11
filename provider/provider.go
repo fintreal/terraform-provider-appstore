@@ -3,7 +3,7 @@ package provider
 import (
 	"context"
 
-	appstore "github.com/fintreal/app-store-sdk-go"
+	appstore "github.com/fintreal/terraform-provider-appstore/internal/appstore"
 	"github.com/fintreal/terraform-provider-appstore/provider/bundleidentifier"
 	"github.com/fintreal/terraform-provider-appstore/provider/certificate"
 	"github.com/fintreal/terraform-provider-appstore/provider/device"

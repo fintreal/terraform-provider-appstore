@@ -15,6 +15,40 @@ env:
   APPSTORE_KEY_ISSUER_ID: ${{ secrets.APPSTORE_KEY_ISSUER_ID }}
 
 jobs:
+  unit-test:
+    name: Unit Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: stable
+
+      - name: Run unit tests
+        run: go test $(go list ./... | grep -v '/internal/appstore/test') -count=1 -cover
+
+  integration-test:
+    name: Integration Test
+    runs-on: ubuntu-latest
+    env:
+      KEY_DATA: ${{ secrets.APPSTORE_KEY }}
+      KEY_ID: ${{ secrets.APPSTORE_KEY_ID }}
+      ISSUER_ID: ${{ secrets.APPSTORE_KEY_ISSUER_ID }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: stable
+
+      - name: Run SDK integration tests
+        run: go test ./internal/appstore/test/... -count=1 -cover
+
   Test:
     runs-on: ubuntu-latest
     steps:
