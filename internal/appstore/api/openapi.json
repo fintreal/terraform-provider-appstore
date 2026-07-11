@@ -1,0 +1,3529 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "App Store Connect API",
+    "version": "3.8.0",
+    "x-platforms": {
+      "app_store_connect_api": "App Store Connect"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.appstoreconnect.apple.com/"
+    }
+  ],
+  "paths": {
+    "/v1/apps": {
+      "get": {
+        "tags": [
+          "Apps"
+        ],
+        "operationId": "apps_getCollection",
+        "parameters": [],
+        "responses": {
+          "400": {
+            "description": "Parameter error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "List of Apps",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/apps/{id}": {
+      "get": {
+        "tags": [
+          "Apps"
+        ],
+        "operationId": "apps_getInstance",
+        "parameters": [],
+        "responses": {
+          "400": {
+            "description": "Parameter error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Single App",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Apps"
+        ],
+        "operationId": "apps_updateInstance",
+        "requestBody": {
+          "description": "App representation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AppUpdateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "400": {
+            "description": "Parameter error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable request entity error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Single App",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Request entity error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "the id of the requested resource",
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple",
+          "required": true
+        }
+      ]
+    },
+    "/v1/bundleIds": {
+      "get": {
+        "tags": [
+          "BundleIds"
+        ],
+        "operationId": "bundleIds_getCollection",
+        "parameters": [],
+        "responses": {
+          "400": {
+            "description": "Parameter error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "List of BundleIds",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BundleIdsResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "BundleIds"
+        ],
+        "operationId": "bundleIds_createInstance",
+        "requestBody": {
+          "description": "BundleId representation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BundleIdCreateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "400": {
+            "description": "Parameter error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable request entity error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Single BundleId",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BundleIdResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Request entity error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/bundleIds/{id}": {
+      "get": {
+        "tags": [
+          "BundleIds"
+        ],
+        "operationId": "bundleIds_getInstance",
+        "parameters": [
+          {
+            "name": "include",
+            "in": "query",
+            "description": "comma-separated list of relationships to include",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "profiles",
+                  "bundleIdCapabilities",
+                  "app"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Parameter error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Single BundleId",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BundleIdResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "BundleIds"
+        ],
+        "operationId": "bundleIds_updateInstance",
+        "requestBody": {
+          "description": "BundleId representation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BundleIdUpdateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "400": {
+            "description": "Parameter error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable request entity error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Single BundleId",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BundleIdResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Request entity error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "BundleIds"
+        ],
+        "operationId": "bundleIds_deleteInstance",
+        "responses": {
+          "400": {
+            "description": "Parameter error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Request entity error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Success (no content)"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "the id of the requested resource",
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple",
+          "required": true
+        }
+      ]
+    },
+    "/v1/bundleIdCapabilities": {
+      "post": {
+        "tags": [
+          "BundleIdCapabilities"
+        ],
+        "operationId": "bundleIdCapabilities_createInstance",
+        "requestBody": {
+          "description": "BundleIdCapability representation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BundleIdCapabilityCreateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "400": {
+            "description": "Parameter error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable request entity error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Single BundleIdCapability",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BundleIdCapabilityResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Request entity error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/bundleIdCapabilities/{id}": {
+      "patch": {
+        "tags": [
+          "BundleIdCapabilities"
+        ],
+        "operationId": "bundleIdCapabilities_updateInstance",
+        "requestBody": {
+          "description": "BundleIdCapability representation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BundleIdCapabilityUpdateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "400": {
+            "description": "Parameter error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable request entity error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Single BundleIdCapability",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BundleIdCapabilityResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Request entity error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "BundleIdCapabilities"
+        ],
+        "operationId": "bundleIdCapabilities_deleteInstance",
+        "responses": {
+          "400": {
+            "description": "Parameter error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Request entity error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Success (no content)"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "the id of the requested resource",
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple",
+          "required": true
+        }
+      ]
+    },
+    "/v1/certificates": {
+      "get": {
+        "tags": [
+          "Certificates"
+        ],
+        "operationId": "certificates_getCollection",
+        "parameters": [
+          {
+            "name": "filter[serialNumber]",
+            "in": "query",
+            "description": "filter by attribute 'serialNumber'",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "style": "form",
+            "explode": false,
+            "required": false
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Parameter error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "List of Certificates",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CertificatesResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Certificates"
+        ],
+        "operationId": "certificates_createInstance",
+        "requestBody": {
+          "description": "Certificate representation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "400": {
+            "description": "Parameter error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable request entity error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Single Certificate",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CertificateResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Request entity error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/certificates/{id}": {
+      "get": {
+        "tags": [
+          "Certificates"
+        ],
+        "operationId": "certificates_getInstance",
+        "parameters": [],
+        "responses": {
+          "400": {
+            "description": "Parameter error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Single Certificate",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CertificateResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Certificates"
+        ],
+        "operationId": "certificates_updateInstance",
+        "requestBody": {
+          "description": "Certificate representation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateUpdateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "400": {
+            "description": "Parameter error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable request entity error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Single Certificate",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CertificateResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Request entity error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Certificates"
+        ],
+        "operationId": "certificates_deleteInstance",
+        "responses": {
+          "400": {
+            "description": "Parameter error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Request entity error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Success (no content)"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "the id of the requested resource",
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple",
+          "required": true
+        }
+      ]
+    },
+    "/v1/profiles": {
+      "get": {
+        "tags": [
+          "Profiles"
+        ],
+        "operationId": "profiles_getCollection",
+        "parameters": [],
+        "responses": {
+          "400": {
+            "description": "Parameter error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "List of Profiles",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfilesResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Profiles"
+        ],
+        "operationId": "profiles_createInstance",
+        "requestBody": {
+          "description": "Profile representation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProfileCreateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "400": {
+            "description": "Parameter error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable request entity error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Single Profile",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfileResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Request entity error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/profiles/{id}": {
+      "get": {
+        "tags": [
+          "Profiles"
+        ],
+        "operationId": "profiles_getInstance",
+        "parameters": [
+          {
+            "name": "include",
+            "in": "query",
+            "description": "comma-separated list of relationships to include",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "bundleId",
+                  "devices",
+                  "certificates"
+                ]
+              }
+            },
+            "style": "form",
+            "explode": false,
+            "required": false
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Parameter error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Single Profile",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfileResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Profiles"
+        ],
+        "operationId": "profiles_deleteInstance",
+        "responses": {
+          "400": {
+            "description": "Parameter error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Request entity error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Success (no content)"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "the id of the requested resource",
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple",
+          "required": true
+        }
+      ]
+    },
+    "/v1/devices": {
+      "get": {
+        "tags": [
+          "Devices"
+        ],
+        "operationId": "devices_getCollection",
+        "parameters": [
+          {
+            "name": "filter[udid]",
+            "in": "query",
+            "description": "filter by device UDID",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "maximum resources per page",
+            "schema": {
+              "type": "integer",
+              "maximum": 200
+            },
+            "style": "form"
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "description": "pagination cursor from links.next",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Parameter error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "List of Devices",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DevicesResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Devices"
+        ],
+        "operationId": "devices_createInstance",
+        "requestBody": {
+          "description": "Device representation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceCreateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "400": {
+            "description": "Parameter error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable request entity error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Request entity error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Single Device",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/devices/{id}": {
+      "get": {
+        "tags": [
+          "Devices"
+        ],
+        "operationId": "devices_getInstance",
+        "responses": {
+          "400": {
+            "description": "Parameter error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Single Device",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Devices"
+        ],
+        "operationId": "devices_updateInstance",
+        "requestBody": {
+          "description": "Device representation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceUpdateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "400": {
+            "description": "Parameter error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable request entity error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Request entity error(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Single Device",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "the id of the requested resource",
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple",
+          "required": true
+        }
+      ]
+    }
+  },
+  "components": {
+    "schemas": {
+      "App": {
+        "type": "object",
+        "title": "App",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "apps"
+            ]
+          },
+          "id": {
+            "type": "string"
+          },
+          "attributes": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "bundleId": {
+                "type": "string"
+              },
+              "sku": {
+                "type": "string"
+              },
+              "primaryLocale": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ]
+      },
+      "AppsResponse": {
+        "type": "object",
+        "title": "AppsResponse",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/App"
+            }
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/AppInfo"
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "AppResponse": {
+        "type": "object",
+        "title": "AppResponse",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/App"
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/AppInfo"
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "AppUpdateRequest": {
+        "type": "object",
+        "title": "AppUpdateRequest",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "apps"
+                ]
+              },
+              "id": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "bundleId": {
+                    "type": "string"
+                  },
+                  "primaryLocale": {
+                    "type": "string"
+                  },
+                  "subscriptionStatusUrl": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "subscriptionStatusUrlForSandbox": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "contentRightsDeclaration": {
+                    "type": "string",
+                    "enum": [
+                      "DOES_NOT_USE_THIRD_PARTY_CONTENT",
+                      "USES_THIRD_PARTY_CONTENT"
+                    ]
+                  },
+                  "streamlinedPurchasingEnabled": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            },
+            "required": [
+              "id",
+              "type"
+            ]
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "BundleId": {
+        "type": "object",
+        "title": "BundleId",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "bundleIds"
+            ]
+          },
+          "id": {
+            "type": "string"
+          },
+          "attributes": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "platform": {
+                "$ref": "#/components/schemas/BundleIdPlatform"
+              },
+              "identifier": {
+                "type": "string"
+              },
+              "seedId": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "identifier",
+              "name",
+              "platform",
+              "seedId"
+            ]
+          },
+          "relationships": {
+            "type": "object",
+            "properties": {
+              "profiles": {
+                "type": "object",
+                "properties": {
+                  "links": {
+                    "$ref": "#/components/schemas/RelationshipLinks"
+                  },
+                  "meta": {
+                    "$ref": "#/components/schemas/PagingInformation"
+                  },
+                  "data": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "enum": [
+                            "profiles"
+                          ]
+                        },
+                        "id": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "type"
+                      ]
+                    }
+                  }
+                }
+              },
+              "bundleIdCapabilities": {
+                "type": "object",
+                "properties": {
+                  "links": {
+                    "$ref": "#/components/schemas/RelationshipLinks"
+                  },
+                  "meta": {
+                    "$ref": "#/components/schemas/PagingInformation"
+                  },
+                  "data": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "enum": [
+                            "bundleIdCapabilities"
+                          ]
+                        },
+                        "id": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "type"
+                      ]
+                    }
+                  }
+                }
+              },
+              "app": {
+                "type": "object",
+                "properties": {
+                  "links": {
+                    "$ref": "#/components/schemas/RelationshipLinks"
+                  },
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "apps"
+                        ]
+                      },
+                      "id": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "type"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ]
+      },
+      "BundleIdsResponse": {
+        "type": "object",
+        "title": "BundleIdsResponse",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BundleId"
+            }
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/Profile"
+                },
+                {
+                  "$ref": "#/components/schemas/BundleIdCapability"
+                },
+                {
+                  "$ref": "#/components/schemas/App"
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "BundleIdResponse": {
+        "type": "object",
+        "title": "BundleIdResponse",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/BundleId"
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Profile"
+                },
+                {
+                  "$ref": "#/components/schemas/BundleIdCapability"
+                },
+                {
+                  "$ref": "#/components/schemas/App"
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "BundleIdCreateRequest": {
+        "type": "object",
+        "title": "BundleIdCreateRequest",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "bundleIds"
+                ]
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "platform": {
+                    "$ref": "#/components/schemas/BundleIdPlatform"
+                  },
+                  "identifier": {
+                    "type": "string"
+                  },
+                  "seedId": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "identifier",
+                  "name",
+                  "platform"
+                ]
+              }
+            },
+            "required": [
+              "attributes",
+              "relationships",
+              "type"
+            ]
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "BundleIdUpdateRequest": {
+        "type": "object",
+        "title": "BundleIdUpdateRequest",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "bundleIds"
+                ]
+              },
+              "id": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "required": [
+              "id",
+              "type"
+            ]
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "BundleIdCapability": {
+        "type": "object",
+        "title": "BundleIdCapability",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "bundleIdCapabilities"
+            ]
+          },
+          "id": {
+            "type": "string"
+          },
+          "attributes": {
+            "type": "object",
+            "properties": {
+              "capabilityType": {
+                "$ref": "#/components/schemas/CapabilityType"
+              },
+              "settings": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CapabilitySetting"
+                }
+              }
+            }
+          },
+          "links": {
+            "$ref": "#/components/schemas/ResourceLinks"
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ]
+      },
+      "BundleIdCapabilitiesResponse": {
+        "type": "object",
+        "title": "BundleIdCapabilitiesResponse",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BundleIdCapability"
+            }
+          },
+          "links": {
+            "$ref": "#/components/schemas/PagedDocumentLinks"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PagingInformation"
+          }
+        },
+        "required": [
+          "data",
+          "links"
+        ]
+      },
+      "BundleIdCapabilityResponse": {
+        "type": "object",
+        "title": "BundleIdCapabilityResponse",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/BundleIdCapability"
+          },
+          "links": {
+            "$ref": "#/components/schemas/DocumentLinks"
+          }
+        },
+        "required": [
+          "data",
+          "links"
+        ]
+      },
+      "BundleIdCapabilityCreateRequest": {
+        "type": "object",
+        "title": "BundleIdCapabilityCreateRequest",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "bundleIdCapabilities"
+                ]
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "capabilityType": {
+                    "$ref": "#/components/schemas/CapabilityType"
+                  },
+                  "settings": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/CapabilitySetting"
+                    }
+                  }
+                },
+                "required": [
+                  "capabilityType",
+                  "settings"
+                ]
+              },
+              "relationships": {
+                "type": "object",
+                "properties": {
+                  "bundleId": {
+                    "type": "object",
+                    "properties": {
+                      "data": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "bundleIds"
+                            ]
+                          },
+                          "id": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "type"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "data"
+                    ]
+                  }
+                },
+                "required": [
+                  "bundleId"
+                ]
+              }
+            },
+            "required": [
+              "relationships",
+              "attributes",
+              "type"
+            ]
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "BundleIdCapabilityUpdateRequest": {
+        "type": "object",
+        "title": "BundleIdCapabilityUpdateRequest",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "bundleIdCapabilities"
+                ]
+              },
+              "id": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "capabilityType": {
+                    "$ref": "#/components/schemas/CapabilityType"
+                  },
+                  "settings": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/CapabilitySetting"
+                    }
+                  }
+                }
+              }
+            },
+            "required": [
+              "id",
+              "type"
+            ]
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "BundleIdPlatform": {
+        "type": "string",
+        "enum": [
+          "IOS",
+          "MAC_OS",
+          "UNIVERSAL"
+        ]
+      },
+      "CapabilitySetting": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "enum": [
+              "ICLOUD_VERSION",
+              "DATA_PROTECTION_PERMISSION_LEVEL",
+              "APPLE_ID_AUTH_APP_CONSENT"
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "enabledByDefault": {
+            "type": "boolean"
+          },
+          "visible": {
+            "type": "boolean"
+          },
+          "allowedInstances": {
+            "type": "string",
+            "enum": [
+              "ENTRY",
+              "SINGLE",
+              "MULTIPLE"
+            ]
+          },
+          "minInstances": {
+            "type": "integer"
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CapabilityOption"
+            }
+          }
+        }
+      },
+      "CapabilityOption": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "enum": [
+              "XCODE_5",
+              "XCODE_6",
+              "COMPLETE_PROTECTION",
+              "PROTECTED_UNLESS_OPEN",
+              "PROTECTED_UNTIL_FIRST_USER_AUTH",
+              "PRIMARY_APP_CONSENT"
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "enabledByDefault": {
+            "type": "boolean"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "supportsWildcard": {
+            "type": "boolean"
+          }
+        }
+      },
+      "CapabilityType": {
+        "type": "string",
+        "enum": [
+          "ICLOUD",
+          "IN_APP_PURCHASE",
+          "GAME_CENTER",
+          "PUSH_NOTIFICATIONS",
+          "WALLET",
+          "INTER_APP_AUDIO",
+          "MAPS",
+          "ASSOCIATED_DOMAINS",
+          "PERSONAL_VPN",
+          "APP_GROUPS",
+          "HEALTHKIT",
+          "HOMEKIT",
+          "WIRELESS_ACCESSORY_CONFIGURATION",
+          "APPLE_PAY",
+          "DATA_PROTECTION",
+          "SIRIKIT",
+          "NETWORK_EXTENSIONS",
+          "MULTIPATH",
+          "HOT_SPOT",
+          "NFC_TAG_READING",
+          "CLASSKIT",
+          "AUTOFILL_CREDENTIAL_PROVIDER",
+          "ACCESS_WIFI_INFORMATION",
+          "NETWORK_CUSTOM_PROTOCOL",
+          "COREMEDIA_HLS_LOW_LATENCY",
+          "SYSTEM_EXTENSION_INSTALL",
+          "USER_MANAGEMENT",
+          "APPLE_ID_AUTH"
+        ]
+      },
+      "Certificate": {
+        "type": "object",
+        "title": "Certificate",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "certificates"
+            ]
+          },
+          "id": {
+            "type": "string"
+          },
+          "attributes": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "certificateType": {
+                "$ref": "#/components/schemas/CertificateType"
+              },
+              "displayName": {
+                "type": "string"
+              },
+              "serialNumber": {
+                "type": "string"
+              },
+              "platform": {
+                "$ref": "#/components/schemas/BundleIdPlatform"
+              },
+              "expirationDate": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "certificateContent": {
+                "type": "string"
+              },
+              "activated": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "name",
+              "certificateType",
+              "displayName",
+              "serialNumber"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ]
+      },
+      "CertificatesResponse": {
+        "type": "object",
+        "title": "CertificatesResponse",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Certificate"
+            }
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "CertificateResponse": {
+        "type": "object",
+        "title": "CertificateResponse",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Certificate"
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "CertificateCreateRequest": {
+        "type": "object",
+        "title": "CertificateCreateRequest",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "certificates"
+                ]
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "csrContent": {
+                    "type": "string"
+                  },
+                  "certificateType": {
+                    "$ref": "#/components/schemas/CertificateType"
+                  }
+                },
+                "required": [
+                  "csrContent",
+                  "certificateType"
+                ]
+              }
+            },
+            "required": [
+              "attributes",
+              "type"
+            ]
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "CertificateUpdateRequest": {
+        "type": "object",
+        "title": "CertificateUpdateRequest",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "certificates"
+                ]
+              },
+              "id": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "activated": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            },
+            "required": [
+              "id",
+              "type"
+            ]
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "Profile": {
+        "type": "object",
+        "title": "Profile",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "profiles"
+            ]
+          },
+          "id": {
+            "type": "string"
+          },
+          "attributes": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "platform": {
+                "$ref": "#/components/schemas/BundleIdPlatform"
+              },
+              "profileType": {
+                "type": "string",
+                "enum": [
+                  "IOS_APP_DEVELOPMENT",
+                  "IOS_APP_STORE",
+                  "IOS_APP_ADHOC",
+                  "IOS_APP_INHOUSE",
+                  "MAC_APP_DEVELOPMENT",
+                  "MAC_APP_STORE",
+                  "MAC_APP_DIRECT",
+                  "TVOS_APP_DEVELOPMENT",
+                  "TVOS_APP_STORE",
+                  "TVOS_APP_ADHOC",
+                  "TVOS_APP_INHOUSE",
+                  "MAC_CATALYST_APP_DEVELOPMENT",
+                  "MAC_CATALYST_APP_STORE",
+                  "MAC_CATALYST_APP_DIRECT"
+                ]
+              },
+              "profileState": {
+                "type": "string",
+                "enum": [
+                  "ACTIVE",
+                  "INVALID"
+                ]
+              },
+              "profileContent": {
+                "type": "string"
+              },
+              "uuid": {
+                "type": "string"
+              },
+              "createdDate": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "expirationDate": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          },
+          "relationships": {
+            "type": "object",
+            "properties": {
+              "bundleId": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "bundleIds"
+                        ]
+                      },
+                      "id": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "type"
+                    ]
+                  }
+                }
+              },
+              "devices": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "enum": [
+                            "devices"
+                          ]
+                        },
+                        "id": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "type"
+                      ]
+                    }
+                  }
+                }
+              },
+              "certificates": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "enum": [
+                            "certificates"
+                          ]
+                        },
+                        "id": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "type"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ]
+      },
+      "ProfilesResponse": {
+        "type": "object",
+        "title": "ProfilesResponse",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Profile"
+            }
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/BundleId"
+                },
+                {
+                  "$ref": "#/components/schemas/Device"
+                },
+                {
+                  "$ref": "#/components/schemas/Certificate"
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "ProfileResponse": {
+        "type": "object",
+        "title": "ProfileResponse",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Profile"
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/BundleId"
+                },
+                {
+                  "$ref": "#/components/schemas/Device"
+                },
+                {
+                  "$ref": "#/components/schemas/Certificate"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "type",
+                "mapping": {
+                  "bundleIds": "#/components/schemas/BundleId",
+                  "devices": "#/components/schemas/Device",
+                  "certificates": "#/components/schemas/Certificate"
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "ProfileCreateRequest": {
+        "type": "object",
+        "title": "ProfileCreateRequest",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "profiles"
+                ]
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "profileType": {
+                    "type": "string",
+                    "enum": [
+                      "IOS_APP_DEVELOPMENT",
+                      "IOS_APP_STORE",
+                      "IOS_APP_ADHOC",
+                      "IOS_APP_INHOUSE",
+                      "MAC_APP_DEVELOPMENT",
+                      "MAC_APP_STORE",
+                      "MAC_APP_DIRECT",
+                      "TVOS_APP_DEVELOPMENT",
+                      "TVOS_APP_STORE",
+                      "TVOS_APP_ADHOC",
+                      "TVOS_APP_INHOUSE",
+                      "MAC_CATALYST_APP_DEVELOPMENT",
+                      "MAC_CATALYST_APP_STORE",
+                      "MAC_CATALYST_APP_DIRECT"
+                    ]
+                  }
+                },
+                "required": [
+                  "profileType",
+                  "name"
+                ]
+              },
+              "relationships": {
+                "type": "object",
+                "properties": {
+                  "bundleId": {
+                    "type": "object",
+                    "properties": {
+                      "data": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "bundleIds"
+                            ]
+                          },
+                          "id": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "type"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "data"
+                    ]
+                  },
+                  "devices": {
+                    "type": "object",
+                    "properties": {
+                      "data": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "enum": [
+                                "devices"
+                              ]
+                            },
+                            "id": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "type"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "certificates": {
+                    "type": "object",
+                    "properties": {
+                      "data": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "enum": [
+                                "certificates"
+                              ]
+                            },
+                            "id": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "type"
+                          ]
+                        }
+                      }
+                    },
+                    "required": [
+                      "data"
+                    ]
+                  }
+                },
+                "required": [
+                  "certificates",
+                  "bundleId"
+                ]
+              }
+            },
+            "required": [
+              "relationships",
+              "attributes",
+              "type"
+            ]
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "code": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "detail": {
+                  "type": "string"
+                },
+                "source": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ErrorSourcePointer"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ErrorSourceParameter"
+                    }
+                  ]
+                },
+                "links": {
+                  "$ref": "#/components/schemas/ErrorLinks"
+                },
+                "meta": {
+                  "type": "object",
+                  "additionalProperties": {}
+                }
+              },
+              "required": [
+                "code",
+                "detail",
+                "status",
+                "title"
+              ]
+            }
+          }
+        }
+      },
+      "ErrorLinks": {
+        "type": "object",
+        "properties": {
+          "about": {
+            "type": "string",
+            "format": "uri-reference"
+          },
+          "associated": {
+            "oneOf": [
+              {
+                "type": "string",
+                "format": "uri-reference"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "href": {
+                    "type": "string",
+                    "format": "uri-reference"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "source": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      "ErrorSourceParameter": {
+        "type": "object",
+        "title": "Parameter",
+        "properties": {
+          "parameter": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "parameter"
+        ]
+      },
+      "ErrorSourcePointer": {
+        "type": "object",
+        "title": "JsonPointer",
+        "properties": {
+          "pointer": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "pointer"
+        ]
+      },
+      "CertificateType": {
+        "type": "string",
+        "enum": [
+          "APPLE_PAY",
+          "APPLE_PAY_MERCHANT_IDENTITY",
+          "APPLE_PAY_PSP_IDENTITY",
+          "APPLE_PAY_RSA",
+          "DEVELOPER_ID_KEXT",
+          "DEVELOPER_ID_KEXT_G2",
+          "DEVELOPER_ID_APPLICATION",
+          "DEVELOPER_ID_APPLICATION_G2",
+          "DEVELOPMENT",
+          "DISTRIBUTION",
+          "IDENTITY_ACCESS",
+          "IOS_DEVELOPMENT",
+          "IOS_DISTRIBUTION",
+          "MAC_APP_DISTRIBUTION",
+          "MAC_INSTALLER_DISTRIBUTION",
+          "MAC_APP_DEVELOPMENT",
+          "PASS_TYPE_ID",
+          "PASS_TYPE_ID_WITH_NFC"
+        ]
+      },
+      "Device": {
+        "type": "object",
+        "title": "Device",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "devices"
+            ]
+          },
+          "id": {
+            "type": "string"
+          },
+          "attributes": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "platform": {
+                "$ref": "#/components/schemas/BundleIdPlatform"
+              },
+              "udid": {
+                "type": "string"
+              },
+              "deviceClass": {
+                "type": "string",
+                "enum": [
+                  "APPLE_WATCH",
+                  "IPAD",
+                  "IPHONE",
+                  "IPOD",
+                  "APPLE_TV",
+                  "MAC"
+                ]
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "ENABLED",
+                  "DISABLED"
+                ]
+              },
+              "model": {
+                "type": "string"
+              },
+              "addedDate": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ]
+      },
+      "AppStoreVersionState": {
+        "type": "string",
+        "enum": [
+          "ACCEPTED",
+          "DEVELOPER_REMOVED_FROM_SALE",
+          "DEVELOPER_REJECTED",
+          "IN_REVIEW",
+          "INVALID_BINARY",
+          "METADATA_REJECTED",
+          "PENDING_APPLE_RELEASE",
+          "PENDING_CONTRACT",
+          "PENDING_DEVELOPER_RELEASE",
+          "PREPARE_FOR_SUBMISSION",
+          "PREORDER_READY_FOR_SALE",
+          "PROCESSING_FOR_APP_STORE",
+          "READY_FOR_REVIEW",
+          "READY_FOR_SALE",
+          "REJECTED",
+          "REMOVED_FROM_SALE",
+          "WAITING_FOR_EXPORT_COMPLIANCE",
+          "WAITING_FOR_REVIEW",
+          "REPLACED_WITH_NEW_VERSION",
+          "NOT_APPLICABLE"
+        ]
+      },
+      "AppInfo": {
+        "type": "object",
+        "title": "AppInfo",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "appInfos"
+            ]
+          },
+          "id": {
+            "type": "string"
+          },
+          "attributes": {
+            "type": "object",
+            "properties": {
+              "appStoreState": {
+                "deprecated": true,
+                "$ref": "#/components/schemas/AppStoreVersionState"
+              },
+              "state": {
+                "type": "string",
+                "enum": [
+                  "ACCEPTED",
+                  "DEVELOPER_REJECTED",
+                  "IN_REVIEW",
+                  "PENDING_RELEASE",
+                  "PREPARE_FOR_SUBMISSION",
+                  "READY_FOR_DISTRIBUTION",
+                  "READY_FOR_REVIEW",
+                  "REJECTED",
+                  "REPLACED_WITH_NEW_INFO",
+                  "WAITING_FOR_REVIEW"
+                ]
+              }
+            }
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ]
+      },
+      "ResourceLinks": {
+        "type": "object",
+        "properties": {
+          "self": {
+            "type": "string",
+            "format": "uri-reference"
+          }
+        }
+      },
+      "RelationshipLinks": {
+        "type": "object",
+        "properties": {
+          "self": {
+            "type": "string",
+            "format": "uri-reference"
+          },
+          "related": {
+            "type": "string",
+            "format": "uri-reference"
+          }
+        }
+      },
+      "PagingInformation": {
+        "type": "object",
+        "properties": {
+          "paging": {
+            "type": "object",
+            "properties": {
+              "total": {
+                "type": "integer"
+              },
+              "limit": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "limit"
+            ]
+          }
+        },
+        "required": [
+          "paging"
+        ]
+      },
+      "DocumentLinks": {
+        "type": "object",
+        "properties": {
+          "self": {
+            "type": "string",
+            "format": "uri-reference"
+          }
+        },
+        "required": [
+          "self"
+        ]
+      },
+      "PagedDocumentLinks": {
+        "type": "object",
+        "properties": {
+          "self": {
+            "type": "string",
+            "format": "uri-reference"
+          },
+          "first": {
+            "type": "string",
+            "format": "uri-reference"
+          },
+          "next": {
+            "type": "string",
+            "format": "uri-reference"
+          }
+        },
+        "required": [
+          "self"
+        ]
+      },
+      "DeviceCreateRequest": {
+        "type": "object",
+        "title": "DeviceCreateRequest",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "devices"
+                ]
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "platform": {
+                    "$ref": "#/components/schemas/BundleIdPlatform"
+                  },
+                  "udid": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "platform",
+                  "udid"
+                ]
+              }
+            },
+            "required": [
+              "attributes",
+              "type"
+            ]
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "DeviceUpdateRequest": {
+        "type": "object",
+        "title": "DeviceUpdateRequest",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "devices"
+                ]
+              },
+              "id": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "ENABLED",
+                      "DISABLED"
+                    ]
+                  }
+                }
+              }
+            },
+            "required": [
+              "id",
+              "type"
+            ]
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "DeviceResponse": {
+        "type": "object",
+        "title": "DeviceResponse",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Device"
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "DevicesResponse": {
+        "type": "object",
+        "title": "DevicesResponse",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Device"
+            }
+          },
+          "links": {
+            "$ref": "#/components/schemas/PagedDocumentLinks"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PagingInformation"
+          }
+        },
+        "required": [
+          "data"
+        ]
+      }
+    },
+    "securitySchemes": {
+      "itc-bearer-token": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "itc-bearer-token": []
+    }
+  ]
+}
