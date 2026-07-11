@@ -20,13 +20,13 @@ var _ MappedNullable = &DeviceAttributes{}
 
 // DeviceAttributes struct for DeviceAttributes
 type DeviceAttributes struct {
-	Name *string `json:"name,omitempty"`
-	Platform *BundleIdPlatform `json:"platform,omitempty"`
-	Udid *string `json:"udid,omitempty"`
-	DeviceClass *string `json:"deviceClass,omitempty"`
-	Status *string `json:"status,omitempty"`
-	Model *string `json:"model,omitempty"`
-	AddedDate *time.Time `json:"addedDate,omitempty"`
+	Name        *string           `json:"name,omitempty"`
+	Platform    *BundleIdPlatform `json:"platform,omitempty"`
+	Udid        *string           `json:"udid,omitempty"`
+	DeviceClass *string           `json:"deviceClass,omitempty"`
+	Status      *string           `json:"status,omitempty"`
+	Model       *string           `json:"model,omitempty"`
+	AddedDate   *time.Time        `json:"addedDate,omitempty"`
 }
 
 // NewDeviceAttributes instantiates a new DeviceAttributes object
@@ -271,7 +271,7 @@ func (o *DeviceAttributes) SetAddedDate(v time.Time) {
 }
 
 func (o DeviceAttributes) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -339,5 +339,3 @@ func (v *NullableDeviceAttributes) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

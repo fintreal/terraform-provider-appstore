@@ -19,7 +19,7 @@ var _ MappedNullable = &ErrorLinks{}
 
 // ErrorLinks struct for ErrorLinks
 type ErrorLinks struct {
-	About *string `json:"about,omitempty"`
+	About      *string               `json:"about,omitempty"`
 	Associated *ErrorLinksAssociated `json:"associated,omitempty"`
 }
 
@@ -105,7 +105,7 @@ func (o *ErrorLinks) SetAssociated(v ErrorLinksAssociated) {
 }
 
 func (o ErrorLinks) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -158,5 +158,3 @@ func (v *NullableErrorLinks) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

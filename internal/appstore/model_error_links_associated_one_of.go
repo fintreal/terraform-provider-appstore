@@ -19,7 +19,7 @@ var _ MappedNullable = &ErrorLinksAssociatedOneOf{}
 
 // ErrorLinksAssociatedOneOf struct for ErrorLinksAssociatedOneOf
 type ErrorLinksAssociatedOneOf struct {
-	Href *string `json:"href,omitempty"`
+	Href *string                        `json:"href,omitempty"`
 	Meta *ErrorLinksAssociatedOneOfMeta `json:"meta,omitempty"`
 }
 
@@ -105,7 +105,7 @@ func (o *ErrorLinksAssociatedOneOf) SetMeta(v ErrorLinksAssociatedOneOfMeta) {
 }
 
 func (o ErrorLinksAssociatedOneOf) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -158,5 +158,3 @@ func (v *NullableErrorLinksAssociatedOneOf) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

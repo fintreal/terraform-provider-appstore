@@ -11,8 +11,8 @@ API version: 3.8.0
 package openapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,9 +21,9 @@ var _ MappedNullable = &PagedDocumentLinks{}
 
 // PagedDocumentLinks struct for PagedDocumentLinks
 type PagedDocumentLinks struct {
-	Self string `json:"self"`
+	Self  string  `json:"self"`
 	First *string `json:"first,omitempty"`
-	Next *string `json:"next,omitempty"`
+	Next  *string `json:"next,omitempty"`
 }
 
 type _PagedDocumentLinks PagedDocumentLinks
@@ -135,7 +135,7 @@ func (o *PagedDocumentLinks) SetNext(v string) {
 }
 
 func (o PagedDocumentLinks) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -167,10 +167,10 @@ func (o *PagedDocumentLinks) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -225,5 +225,3 @@ func (v *NullablePagedDocumentLinks) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

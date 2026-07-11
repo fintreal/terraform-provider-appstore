@@ -11,8 +11,8 @@ API version: 3.8.0
 package openapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,9 +21,9 @@ var _ MappedNullable = &ProfileCreateRequestDataRelationships{}
 
 // ProfileCreateRequestDataRelationships struct for ProfileCreateRequestDataRelationships
 type ProfileCreateRequestDataRelationships struct {
-	BundleId BundleIdCapabilityCreateRequestDataRelationshipsBundleId `json:"bundleId"`
-	Devices *ProfileRelationshipsDevices `json:"devices,omitempty"`
-	Certificates ProfileCreateRequestDataRelationshipsCertificates `json:"certificates"`
+	BundleId     BundleIdCapabilityCreateRequestDataRelationshipsBundleId `json:"bundleId"`
+	Devices      *ProfileRelationshipsDevices                             `json:"devices,omitempty"`
+	Certificates ProfileCreateRequestDataRelationshipsCertificates        `json:"certificates"`
 }
 
 type _ProfileCreateRequestDataRelationships ProfileCreateRequestDataRelationships
@@ -128,7 +128,7 @@ func (o *ProfileCreateRequestDataRelationships) SetCertificates(v ProfileCreateR
 }
 
 func (o ProfileCreateRequestDataRelationships) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -159,10 +159,10 @@ func (o *ProfileCreateRequestDataRelationships) UnmarshalJSON(data []byte) (err 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -217,5 +217,3 @@ func (v *NullableProfileCreateRequestDataRelationships) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -18,9 +18,9 @@ import (
 
 // BundleIdsResponseIncludedInner - struct for BundleIdsResponseIncludedInner
 type BundleIdsResponseIncludedInner struct {
-	App *App
+	App                *App
 	BundleIdCapability *BundleIdCapability
-	Profile *Profile
+	Profile            *Profile
 }
 
 // AppAsBundleIdsResponseIncludedInner is a convenience function that returns App wrapped in BundleIdsResponseIncludedInner
@@ -43,7 +43,6 @@ func ProfileAsBundleIdsResponseIncludedInner(v *Profile) BundleIdsResponseInclud
 		Profile: v,
 	}
 }
-
 
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *BundleIdsResponseIncludedInner) UnmarshalJSON(data []byte) error {
@@ -132,7 +131,7 @@ func (src BundleIdsResponseIncludedInner) MarshalJSON() ([]byte, error) {
 }
 
 // Get the actual instance
-func (obj *BundleIdsResponseIncludedInner) GetActualInstance() (interface{}) {
+func (obj *BundleIdsResponseIncludedInner) GetActualInstance() interface{} {
 	if obj == nil {
 		return nil
 	}
@@ -153,7 +152,7 @@ func (obj *BundleIdsResponseIncludedInner) GetActualInstance() (interface{}) {
 }
 
 // Get the actual instance value
-func (obj BundleIdsResponseIncludedInner) GetActualInstanceValue() (interface{}) {
+func (obj BundleIdsResponseIncludedInner) GetActualInstanceValue() interface{} {
 	if obj.App != nil {
 		return *obj.App
 	}
@@ -205,5 +204,3 @@ func (v *NullableBundleIdsResponseIncludedInner) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -11,8 +11,8 @@ API version: 3.8.0
 package openapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,14 +21,14 @@ var _ MappedNullable = &ErrorResponseErrorsInner{}
 
 // ErrorResponseErrorsInner struct for ErrorResponseErrorsInner
 type ErrorResponseErrorsInner struct {
-	Id *string `json:"id,omitempty"`
-	Status string `json:"status"`
-	Code string `json:"code"`
-	Title string `json:"title"`
-	Detail string `json:"detail"`
+	Id     *string                         `json:"id,omitempty"`
+	Status string                          `json:"status"`
+	Code   string                          `json:"code"`
+	Title  string                          `json:"title"`
+	Detail string                          `json:"detail"`
 	Source *ErrorResponseErrorsInnerSource `json:"source,omitempty"`
-	Links *ErrorLinks `json:"links,omitempty"`
-	Meta map[string]interface{} `json:"meta,omitempty"`
+	Links  *ErrorLinks                     `json:"links,omitempty"`
+	Meta   map[string]interface{}          `json:"meta,omitempty"`
 }
 
 type _ErrorResponseErrorsInner ErrorResponseErrorsInner
@@ -279,7 +279,7 @@ func (o *ErrorResponseErrorsInner) SetMeta(v map[string]interface{}) {
 }
 
 func (o ErrorResponseErrorsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -323,10 +323,10 @@ func (o *ErrorResponseErrorsInner) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -381,5 +381,3 @@ func (v *NullableErrorResponseErrorsInner) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

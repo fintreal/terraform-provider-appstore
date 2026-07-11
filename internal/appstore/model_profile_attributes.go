@@ -20,14 +20,14 @@ var _ MappedNullable = &ProfileAttributes{}
 
 // ProfileAttributes struct for ProfileAttributes
 type ProfileAttributes struct {
-	Name *string `json:"name,omitempty"`
-	Platform *BundleIdPlatform `json:"platform,omitempty"`
-	ProfileType *string `json:"profileType,omitempty"`
-	ProfileState *string `json:"profileState,omitempty"`
-	ProfileContent *string `json:"profileContent,omitempty"`
-	Uuid *string `json:"uuid,omitempty"`
-	CreatedDate *time.Time `json:"createdDate,omitempty"`
-	ExpirationDate *time.Time `json:"expirationDate,omitempty"`
+	Name           *string           `json:"name,omitempty"`
+	Platform       *BundleIdPlatform `json:"platform,omitempty"`
+	ProfileType    *string           `json:"profileType,omitempty"`
+	ProfileState   *string           `json:"profileState,omitempty"`
+	ProfileContent *string           `json:"profileContent,omitempty"`
+	Uuid           *string           `json:"uuid,omitempty"`
+	CreatedDate    *time.Time        `json:"createdDate,omitempty"`
+	ExpirationDate *time.Time        `json:"expirationDate,omitempty"`
 }
 
 // NewProfileAttributes instantiates a new ProfileAttributes object
@@ -304,7 +304,7 @@ func (o *ProfileAttributes) SetExpirationDate(v time.Time) {
 }
 
 func (o ProfileAttributes) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -375,5 +375,3 @@ func (v *NullableProfileAttributes) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

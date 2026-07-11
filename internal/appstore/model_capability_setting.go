@@ -19,14 +19,14 @@ var _ MappedNullable = &CapabilitySetting{}
 
 // CapabilitySetting struct for CapabilitySetting
 type CapabilitySetting struct {
-	Key *string `json:"key,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Description *string `json:"description,omitempty"`
-	EnabledByDefault *bool `json:"enabledByDefault,omitempty"`
-	Visible *bool `json:"visible,omitempty"`
-	AllowedInstances *string `json:"allowedInstances,omitempty"`
-	MinInstances *int32 `json:"minInstances,omitempty"`
-	Options []CapabilityOption `json:"options,omitempty"`
+	Key              *string            `json:"key,omitempty"`
+	Name             *string            `json:"name,omitempty"`
+	Description      *string            `json:"description,omitempty"`
+	EnabledByDefault *bool              `json:"enabledByDefault,omitempty"`
+	Visible          *bool              `json:"visible,omitempty"`
+	AllowedInstances *string            `json:"allowedInstances,omitempty"`
+	MinInstances     *int32             `json:"minInstances,omitempty"`
+	Options          []CapabilityOption `json:"options,omitempty"`
 }
 
 // NewCapabilitySetting instantiates a new CapabilitySetting object
@@ -303,7 +303,7 @@ func (o *CapabilitySetting) SetOptions(v []CapabilityOption) {
 }
 
 func (o CapabilitySetting) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -374,5 +374,3 @@ func (v *NullableCapabilitySetting) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

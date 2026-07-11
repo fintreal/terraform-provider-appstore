@@ -65,9 +65,9 @@ type ServerVariable struct {
 
 // ServerConfiguration stores the information about a server
 type ServerConfiguration struct {
-	URL string
+	URL         string
 	Description string
-	Variables map[string]ServerVariable
+	Variables   map[string]ServerVariable
 }
 
 // ServerConfigurations stores multiple ServerConfiguration items
@@ -88,19 +88,18 @@ type Configuration struct {
 // NewConfiguration returns a new Configuration object
 func NewConfiguration(token string) *Configuration {
 	cfg := &Configuration{
-		DefaultHeader:    map[string]string{
+		DefaultHeader: map[string]string{
 			"Authorization": "Bearer " + token,
 		},
-		UserAgent:        "OpenAPI-Generator/1.0.0/go",
-		Debug:            false,
-		Servers:          ServerConfigurations{
+		UserAgent: "OpenAPI-Generator/1.0.0/go",
+		Debug:     false,
+		Servers: ServerConfigurations{
 			{
-				URL: "https://api.appstoreconnect.apple.com",
+				URL:         "https://api.appstoreconnect.apple.com",
 				Description: "No description provided",
 			},
 		},
-		OperationServers: map[string]ServerConfigurations{
-		},
+		OperationServers: map[string]ServerConfigurations{},
 	}
 	return cfg
 }

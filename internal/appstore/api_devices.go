@@ -16,17 +16,16 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 	"reflect"
+	"strings"
 )
-
 
 // DevicesAPIService DevicesAPI service
 type DevicesAPIService service
 
 type ApiDevicesCreateInstanceRequest struct {
-	ctx context.Context
-	ApiService *DevicesAPIService
+	ctx                 context.Context
+	ApiService          *DevicesAPIService
 	deviceCreateRequest *DeviceCreateRequest
 }
 
@@ -43,24 +42,25 @@ func (r ApiDevicesCreateInstanceRequest) Execute() (*DeviceResponse, *http.Respo
 /*
 DevicesCreateInstance Method for DevicesCreateInstance
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiDevicesCreateInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDevicesCreateInstanceRequest
 */
 func (a *DevicesAPIService) DevicesCreateInstance(ctx context.Context) ApiDevicesCreateInstanceRequest {
 	return ApiDevicesCreateInstanceRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return DeviceResponse
+//
+//	@return DeviceResponse
 func (a *DevicesAPIService) DevicesCreateInstanceExecute(r ApiDevicesCreateInstanceRequest) (*DeviceResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeviceResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeviceResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DevicesAPIService.DevicesCreateInstance")
@@ -125,8 +125,8 @@ func (a *DevicesAPIService) DevicesCreateInstanceExecute(r ApiDevicesCreateInsta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -136,8 +136,8 @@ func (a *DevicesAPIService) DevicesCreateInstanceExecute(r ApiDevicesCreateInsta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -147,8 +147,8 @@ func (a *DevicesAPIService) DevicesCreateInstanceExecute(r ApiDevicesCreateInsta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -158,8 +158,8 @@ func (a *DevicesAPIService) DevicesCreateInstanceExecute(r ApiDevicesCreateInsta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -169,8 +169,8 @@ func (a *DevicesAPIService) DevicesCreateInstanceExecute(r ApiDevicesCreateInsta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
@@ -189,11 +189,11 @@ func (a *DevicesAPIService) DevicesCreateInstanceExecute(r ApiDevicesCreateInsta
 }
 
 type ApiDevicesGetCollectionRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *DevicesAPIService
 	filterUdid *[]string
-	limit *int32
-	cursor *string
+	limit      *int32
+	cursor     *string
 }
 
 // filter by device UDID
@@ -221,24 +221,25 @@ func (r ApiDevicesGetCollectionRequest) Execute() (*DevicesResponse, *http.Respo
 /*
 DevicesGetCollection Method for DevicesGetCollection
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiDevicesGetCollectionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDevicesGetCollectionRequest
 */
 func (a *DevicesAPIService) DevicesGetCollection(ctx context.Context) ApiDevicesGetCollectionRequest {
 	return ApiDevicesGetCollectionRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return DevicesResponse
+//
+//	@return DevicesResponse
 func (a *DevicesAPIService) DevicesGetCollectionExecute(r ApiDevicesGetCollectionRequest) (*DevicesResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DevicesResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DevicesResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DevicesAPIService.DevicesGetCollection")
@@ -315,8 +316,8 @@ func (a *DevicesAPIService) DevicesGetCollectionExecute(r ApiDevicesGetCollectio
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -326,8 +327,8 @@ func (a *DevicesAPIService) DevicesGetCollectionExecute(r ApiDevicesGetCollectio
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -337,8 +338,8 @@ func (a *DevicesAPIService) DevicesGetCollectionExecute(r ApiDevicesGetCollectio
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
@@ -357,9 +358,9 @@ func (a *DevicesAPIService) DevicesGetCollectionExecute(r ApiDevicesGetCollectio
 }
 
 type ApiDevicesGetInstanceRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *DevicesAPIService
-	id string
+	id         string
 }
 
 func (r ApiDevicesGetInstanceRequest) Execute() (*DeviceResponse, *http.Response, error) {
@@ -369,26 +370,27 @@ func (r ApiDevicesGetInstanceRequest) Execute() (*DeviceResponse, *http.Response
 /*
 DevicesGetInstance Method for DevicesGetInstance
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id the id of the requested resource
- @return ApiDevicesGetInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id the id of the requested resource
+	@return ApiDevicesGetInstanceRequest
 */
 func (a *DevicesAPIService) DevicesGetInstance(ctx context.Context, id string) ApiDevicesGetInstanceRequest {
 	return ApiDevicesGetInstanceRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return DeviceResponse
+//
+//	@return DeviceResponse
 func (a *DevicesAPIService) DevicesGetInstanceExecute(r ApiDevicesGetInstanceRequest) (*DeviceResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeviceResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeviceResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DevicesAPIService.DevicesGetInstance")
@@ -449,8 +451,8 @@ func (a *DevicesAPIService) DevicesGetInstanceExecute(r ApiDevicesGetInstanceReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -460,8 +462,8 @@ func (a *DevicesAPIService) DevicesGetInstanceExecute(r ApiDevicesGetInstanceReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -471,8 +473,8 @@ func (a *DevicesAPIService) DevicesGetInstanceExecute(r ApiDevicesGetInstanceReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -482,8 +484,8 @@ func (a *DevicesAPIService) DevicesGetInstanceExecute(r ApiDevicesGetInstanceReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
@@ -502,9 +504,9 @@ func (a *DevicesAPIService) DevicesGetInstanceExecute(r ApiDevicesGetInstanceReq
 }
 
 type ApiDevicesUpdateInstanceRequest struct {
-	ctx context.Context
-	ApiService *DevicesAPIService
-	id string
+	ctx                 context.Context
+	ApiService          *DevicesAPIService
+	id                  string
 	deviceUpdateRequest *DeviceUpdateRequest
 }
 
@@ -521,26 +523,27 @@ func (r ApiDevicesUpdateInstanceRequest) Execute() (*DeviceResponse, *http.Respo
 /*
 DevicesUpdateInstance Method for DevicesUpdateInstance
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id the id of the requested resource
- @return ApiDevicesUpdateInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id the id of the requested resource
+	@return ApiDevicesUpdateInstanceRequest
 */
 func (a *DevicesAPIService) DevicesUpdateInstance(ctx context.Context, id string) ApiDevicesUpdateInstanceRequest {
 	return ApiDevicesUpdateInstanceRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return DeviceResponse
+//
+//	@return DeviceResponse
 func (a *DevicesAPIService) DevicesUpdateInstanceExecute(r ApiDevicesUpdateInstanceRequest) (*DeviceResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeviceResponse
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeviceResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DevicesAPIService.DevicesUpdateInstance")
@@ -606,8 +609,8 @@ func (a *DevicesAPIService) DevicesUpdateInstanceExecute(r ApiDevicesUpdateInsta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -617,8 +620,8 @@ func (a *DevicesAPIService) DevicesUpdateInstanceExecute(r ApiDevicesUpdateInsta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -628,8 +631,8 @@ func (a *DevicesAPIService) DevicesUpdateInstanceExecute(r ApiDevicesUpdateInsta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -639,8 +642,8 @@ func (a *DevicesAPIService) DevicesUpdateInstanceExecute(r ApiDevicesUpdateInsta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -650,8 +653,8 @@ func (a *DevicesAPIService) DevicesUpdateInstanceExecute(r ApiDevicesUpdateInsta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -661,8 +664,8 @@ func (a *DevicesAPIService) DevicesUpdateInstanceExecute(r ApiDevicesUpdateInsta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr

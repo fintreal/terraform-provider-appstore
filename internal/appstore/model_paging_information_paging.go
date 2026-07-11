@@ -11,8 +11,8 @@ API version: 3.8.0
 package openapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -22,7 +22,7 @@ var _ MappedNullable = &PagingInformationPaging{}
 // PagingInformationPaging struct for PagingInformationPaging
 type PagingInformationPaging struct {
 	Total *int32 `json:"total,omitempty"`
-	Limit int32 `json:"limit"`
+	Limit int32  `json:"limit"`
 }
 
 type _PagingInformationPaging PagingInformationPaging
@@ -102,7 +102,7 @@ func (o *PagingInformationPaging) SetLimit(v int32) {
 }
 
 func (o PagingInformationPaging) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -131,10 +131,10 @@ func (o *PagingInformationPaging) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -189,5 +189,3 @@ func (v *NullablePagingInformationPaging) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

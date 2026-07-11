@@ -19,8 +19,8 @@ var _ MappedNullable = &ProfileRelationships{}
 
 // ProfileRelationships struct for ProfileRelationships
 type ProfileRelationships struct {
-	BundleId *ProfileRelationshipsBundleId `json:"bundleId,omitempty"`
-	Devices *ProfileRelationshipsDevices `json:"devices,omitempty"`
+	BundleId     *ProfileRelationshipsBundleId     `json:"bundleId,omitempty"`
+	Devices      *ProfileRelationshipsDevices      `json:"devices,omitempty"`
 	Certificates *ProfileRelationshipsCertificates `json:"certificates,omitempty"`
 }
 
@@ -138,7 +138,7 @@ func (o *ProfileRelationships) SetCertificates(v ProfileRelationshipsCertificate
 }
 
 func (o ProfileRelationships) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -194,5 +194,3 @@ func (v *NullableProfileRelationships) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

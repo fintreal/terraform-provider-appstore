@@ -28,7 +28,6 @@ func AppInfoAsAppsResponseIncludedInner(v *AppInfo) AppsResponseIncludedInner {
 	}
 }
 
-
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *AppsResponseIncludedInner) UnmarshalJSON(data []byte) error {
 	var err error
@@ -72,7 +71,7 @@ func (src AppsResponseIncludedInner) MarshalJSON() ([]byte, error) {
 }
 
 // Get the actual instance
-func (obj *AppsResponseIncludedInner) GetActualInstance() (interface{}) {
+func (obj *AppsResponseIncludedInner) GetActualInstance() interface{} {
 	if obj == nil {
 		return nil
 	}
@@ -85,7 +84,7 @@ func (obj *AppsResponseIncludedInner) GetActualInstance() (interface{}) {
 }
 
 // Get the actual instance value
-func (obj AppsResponseIncludedInner) GetActualInstanceValue() (interface{}) {
+func (obj AppsResponseIncludedInner) GetActualInstanceValue() interface{} {
 	if obj.AppInfo != nil {
 		return *obj.AppInfo
 	}
@@ -129,5 +128,3 @@ func (v *NullableAppsResponseIncludedInner) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

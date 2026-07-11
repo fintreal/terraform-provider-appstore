@@ -11,8 +11,8 @@ API version: 3.8.0
 package openapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,8 +21,8 @@ var _ MappedNullable = &BundleIdUpdateRequestData{}
 
 // BundleIdUpdateRequestData struct for BundleIdUpdateRequestData
 type BundleIdUpdateRequestData struct {
-	Type string `json:"type"`
-	Id string `json:"id"`
+	Type       string                               `json:"type"`
+	Id         string                               `json:"id"`
 	Attributes *BundleIdUpdateRequestDataAttributes `json:"attributes,omitempty"`
 }
 
@@ -128,7 +128,7 @@ func (o *BundleIdUpdateRequestData) SetAttributes(v BundleIdUpdateRequestDataAtt
 }
 
 func (o BundleIdUpdateRequestData) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -159,10 +159,10 @@ func (o *BundleIdUpdateRequestData) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -217,5 +217,3 @@ func (v *NullableBundleIdUpdateRequestData) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

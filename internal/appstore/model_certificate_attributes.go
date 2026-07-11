@@ -11,10 +11,10 @@ API version: 3.8.0
 package openapi
 
 import (
-	"encoding/json"
-	"time"
 	"bytes"
+	"encoding/json"
 	"fmt"
+	"time"
 )
 
 // checks if the CertificateAttributes type satisfies the MappedNullable interface at compile time
@@ -22,14 +22,14 @@ var _ MappedNullable = &CertificateAttributes{}
 
 // CertificateAttributes struct for CertificateAttributes
 type CertificateAttributes struct {
-	Name string `json:"name"`
-	CertificateType CertificateType `json:"certificateType"`
-	DisplayName string `json:"displayName"`
-	SerialNumber string `json:"serialNumber"`
-	Platform *BundleIdPlatform `json:"platform,omitempty"`
-	ExpirationDate *time.Time `json:"expirationDate,omitempty"`
-	CertificateContent *string `json:"certificateContent,omitempty"`
-	Activated *bool `json:"activated,omitempty"`
+	Name               string            `json:"name"`
+	CertificateType    CertificateType   `json:"certificateType"`
+	DisplayName        string            `json:"displayName"`
+	SerialNumber       string            `json:"serialNumber"`
+	Platform           *BundleIdPlatform `json:"platform,omitempty"`
+	ExpirationDate     *time.Time        `json:"expirationDate,omitempty"`
+	CertificateContent *string           `json:"certificateContent,omitempty"`
+	Activated          *bool             `json:"activated,omitempty"`
 }
 
 type _CertificateAttributes CertificateAttributes
@@ -280,7 +280,7 @@ func (o *CertificateAttributes) SetActivated(v bool) {
 }
 
 func (o CertificateAttributes) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -324,10 +324,10 @@ func (o *CertificateAttributes) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -382,5 +382,3 @@ func (v *NullableCertificateAttributes) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

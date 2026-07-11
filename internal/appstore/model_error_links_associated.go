@@ -19,7 +19,7 @@ import (
 // ErrorLinksAssociated - struct for ErrorLinksAssociated
 type ErrorLinksAssociated struct {
 	ErrorLinksAssociatedOneOf *ErrorLinksAssociatedOneOf
-	String *string
+	String                    *string
 }
 
 // ErrorLinksAssociatedOneOfAsErrorLinksAssociated is a convenience function that returns ErrorLinksAssociatedOneOf wrapped in ErrorLinksAssociated
@@ -35,7 +35,6 @@ func StringAsErrorLinksAssociated(v *string) ErrorLinksAssociated {
 		String: v,
 	}
 }
-
 
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *ErrorLinksAssociated) UnmarshalJSON(data []byte) error {
@@ -102,7 +101,7 @@ func (src ErrorLinksAssociated) MarshalJSON() ([]byte, error) {
 }
 
 // Get the actual instance
-func (obj *ErrorLinksAssociated) GetActualInstance() (interface{}) {
+func (obj *ErrorLinksAssociated) GetActualInstance() interface{} {
 	if obj == nil {
 		return nil
 	}
@@ -119,7 +118,7 @@ func (obj *ErrorLinksAssociated) GetActualInstance() (interface{}) {
 }
 
 // Get the actual instance value
-func (obj ErrorLinksAssociated) GetActualInstanceValue() (interface{}) {
+func (obj ErrorLinksAssociated) GetActualInstanceValue() interface{} {
 	if obj.ErrorLinksAssociatedOneOf != nil {
 		return *obj.ErrorLinksAssociatedOneOf
 	}
@@ -167,5 +166,3 @@ func (v *NullableErrorLinksAssociated) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

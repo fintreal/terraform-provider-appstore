@@ -15,19 +15,18 @@ import (
 	"fmt"
 )
 
-
 // BundleIdResponseIncludedInner struct for BundleIdResponseIncludedInner
 type BundleIdResponseIncludedInner struct {
-	App *App
+	App                *App
 	BundleIdCapability *BundleIdCapability
-	Profile *Profile
+	Profile            *Profile
 }
 
 // Unmarshal JSON data into any of the pointers in the struct
 func (dst *BundleIdResponseIncludedInner) UnmarshalJSON(data []byte) error {
 	var err error
 	// try to unmarshal JSON data into App
-	err = json.Unmarshal(data, &dst.App);
+	err = json.Unmarshal(data, &dst.App)
 	if err == nil {
 		jsonApp, _ := json.Marshal(dst.App)
 		if string(jsonApp) == "{}" { // empty struct
@@ -40,7 +39,7 @@ func (dst *BundleIdResponseIncludedInner) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal JSON data into BundleIdCapability
-	err = json.Unmarshal(data, &dst.BundleIdCapability);
+	err = json.Unmarshal(data, &dst.BundleIdCapability)
 	if err == nil {
 		jsonBundleIdCapability, _ := json.Marshal(dst.BundleIdCapability)
 		if string(jsonBundleIdCapability) == "{}" { // empty struct
@@ -53,7 +52,7 @@ func (dst *BundleIdResponseIncludedInner) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal JSON data into Profile
-	err = json.Unmarshal(data, &dst.Profile);
+	err = json.Unmarshal(data, &dst.Profile)
 	if err == nil {
 		jsonProfile, _ := json.Marshal(dst.Profile)
 		if string(jsonProfile) == "{}" { // empty struct
@@ -84,7 +83,6 @@ func (src BundleIdResponseIncludedInner) MarshalJSON() ([]byte, error) {
 
 	return nil, nil // no data in anyOf schemas
 }
-
 
 type NullableBundleIdResponseIncludedInner struct {
 	value *BundleIdResponseIncludedInner
@@ -121,5 +119,3 @@ func (v *NullableBundleIdResponseIncludedInner) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -20,8 +20,8 @@ type BundleIdPlatform string
 
 // List of BundleIdPlatform
 const (
-	IOS BundleIdPlatform = "IOS"
-	MAC_OS BundleIdPlatform = "MAC_OS"
+	IOS       BundleIdPlatform = "IOS"
+	MAC_OS    BundleIdPlatform = "MAC_OS"
 	UNIVERSAL BundleIdPlatform = "UNIVERSAL"
 )
 
@@ -110,4 +110,3 @@ func (v *NullableBundleIdPlatform) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

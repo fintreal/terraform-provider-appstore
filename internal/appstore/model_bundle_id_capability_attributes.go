@@ -19,8 +19,8 @@ var _ MappedNullable = &BundleIdCapabilityAttributes{}
 
 // BundleIdCapabilityAttributes struct for BundleIdCapabilityAttributes
 type BundleIdCapabilityAttributes struct {
-	CapabilityType *CapabilityType `json:"capabilityType,omitempty"`
-	Settings []CapabilitySetting `json:"settings,omitempty"`
+	CapabilityType *CapabilityType     `json:"capabilityType,omitempty"`
+	Settings       []CapabilitySetting `json:"settings,omitempty"`
 }
 
 // NewBundleIdCapabilityAttributes instantiates a new BundleIdCapabilityAttributes object
@@ -105,7 +105,7 @@ func (o *BundleIdCapabilityAttributes) SetSettings(v []CapabilitySetting) {
 }
 
 func (o BundleIdCapabilityAttributes) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -158,5 +158,3 @@ func (v *NullableBundleIdCapabilityAttributes) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

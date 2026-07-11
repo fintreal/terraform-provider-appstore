@@ -19,12 +19,12 @@ var _ MappedNullable = &AppUpdateRequestDataAttributes{}
 
 // AppUpdateRequestDataAttributes struct for AppUpdateRequestDataAttributes
 type AppUpdateRequestDataAttributes struct {
-	BundleId *string `json:"bundleId,omitempty"`
-	PrimaryLocale *string `json:"primaryLocale,omitempty"`
-	SubscriptionStatusUrl *string `json:"subscriptionStatusUrl,omitempty"`
+	BundleId                        *string `json:"bundleId,omitempty"`
+	PrimaryLocale                   *string `json:"primaryLocale,omitempty"`
+	SubscriptionStatusUrl           *string `json:"subscriptionStatusUrl,omitempty"`
 	SubscriptionStatusUrlForSandbox *string `json:"subscriptionStatusUrlForSandbox,omitempty"`
-	ContentRightsDeclaration *string `json:"contentRightsDeclaration,omitempty"`
-	StreamlinedPurchasingEnabled *bool `json:"streamlinedPurchasingEnabled,omitempty"`
+	ContentRightsDeclaration        *string `json:"contentRightsDeclaration,omitempty"`
+	StreamlinedPurchasingEnabled    *bool   `json:"streamlinedPurchasingEnabled,omitempty"`
 }
 
 // NewAppUpdateRequestDataAttributes instantiates a new AppUpdateRequestDataAttributes object
@@ -237,7 +237,7 @@ func (o *AppUpdateRequestDataAttributes) SetStreamlinedPurchasingEnabled(v bool)
 }
 
 func (o AppUpdateRequestDataAttributes) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -302,5 +302,3 @@ func (v *NullableAppUpdateRequestDataAttributes) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -19,13 +19,12 @@ import (
 	"strings"
 )
 
-
 // CertificatesAPIService CertificatesAPI service
 type CertificatesAPIService service
 
 type ApiCertificatesCreateInstanceRequest struct {
-	ctx context.Context
-	ApiService *CertificatesAPIService
+	ctx                      context.Context
+	ApiService               *CertificatesAPIService
 	certificateCreateRequest *CertificateCreateRequest
 }
 
@@ -42,24 +41,25 @@ func (r ApiCertificatesCreateInstanceRequest) Execute() (*CertificateResponse, *
 /*
 CertificatesCreateInstance Method for CertificatesCreateInstance
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCertificatesCreateInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCertificatesCreateInstanceRequest
 */
 func (a *CertificatesAPIService) CertificatesCreateInstance(ctx context.Context) ApiCertificatesCreateInstanceRequest {
 	return ApiCertificatesCreateInstanceRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CertificateResponse
+//
+//	@return CertificateResponse
 func (a *CertificatesAPIService) CertificatesCreateInstanceExecute(r ApiCertificatesCreateInstanceRequest) (*CertificateResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CertificateResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CertificateResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CertificatesAPIService.CertificatesCreateInstance")
@@ -124,8 +124,8 @@ func (a *CertificatesAPIService) CertificatesCreateInstanceExecute(r ApiCertific
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -135,8 +135,8 @@ func (a *CertificatesAPIService) CertificatesCreateInstanceExecute(r ApiCertific
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -146,8 +146,8 @@ func (a *CertificatesAPIService) CertificatesCreateInstanceExecute(r ApiCertific
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -157,8 +157,8 @@ func (a *CertificatesAPIService) CertificatesCreateInstanceExecute(r ApiCertific
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -168,8 +168,8 @@ func (a *CertificatesAPIService) CertificatesCreateInstanceExecute(r ApiCertific
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -187,9 +187,9 @@ func (a *CertificatesAPIService) CertificatesCreateInstanceExecute(r ApiCertific
 }
 
 type ApiCertificatesDeleteInstanceRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *CertificatesAPIService
-	id string
+	id         string
 }
 
 func (r ApiCertificatesDeleteInstanceRequest) Execute() (*http.Response, error) {
@@ -199,24 +199,24 @@ func (r ApiCertificatesDeleteInstanceRequest) Execute() (*http.Response, error) 
 /*
 CertificatesDeleteInstance Method for CertificatesDeleteInstance
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id the id of the requested resource
- @return ApiCertificatesDeleteInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id the id of the requested resource
+	@return ApiCertificatesDeleteInstanceRequest
 */
 func (a *CertificatesAPIService) CertificatesDeleteInstance(ctx context.Context, id string) ApiCertificatesDeleteInstanceRequest {
 	return ApiCertificatesDeleteInstanceRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *CertificatesAPIService) CertificatesDeleteInstanceExecute(r ApiCertificatesDeleteInstanceRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CertificatesAPIService.CertificatesDeleteInstance")
@@ -277,8 +277,8 @@ func (a *CertificatesAPIService) CertificatesDeleteInstanceExecute(r ApiCertific
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -288,8 +288,8 @@ func (a *CertificatesAPIService) CertificatesDeleteInstanceExecute(r ApiCertific
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -299,8 +299,8 @@ func (a *CertificatesAPIService) CertificatesDeleteInstanceExecute(r ApiCertific
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -310,8 +310,8 @@ func (a *CertificatesAPIService) CertificatesDeleteInstanceExecute(r ApiCertific
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -321,8 +321,8 @@ func (a *CertificatesAPIService) CertificatesDeleteInstanceExecute(r ApiCertific
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		return localVarHTTPResponse, newErr
@@ -332,8 +332,8 @@ func (a *CertificatesAPIService) CertificatesDeleteInstanceExecute(r ApiCertific
 }
 
 type ApiCertificatesGetCollectionRequest struct {
-	ctx context.Context
-	ApiService *CertificatesAPIService
+	ctx                context.Context
+	ApiService         *CertificatesAPIService
 	filterSerialNumber *[]string
 }
 
@@ -350,24 +350,25 @@ func (r ApiCertificatesGetCollectionRequest) Execute() (*CertificatesResponse, *
 /*
 CertificatesGetCollection Method for CertificatesGetCollection
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCertificatesGetCollectionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCertificatesGetCollectionRequest
 */
 func (a *CertificatesAPIService) CertificatesGetCollection(ctx context.Context) ApiCertificatesGetCollectionRequest {
 	return ApiCertificatesGetCollectionRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CertificatesResponse
+//
+//	@return CertificatesResponse
 func (a *CertificatesAPIService) CertificatesGetCollectionExecute(r ApiCertificatesGetCollectionRequest) (*CertificatesResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CertificatesResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CertificatesResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CertificatesAPIService.CertificatesGetCollection")
@@ -430,8 +431,8 @@ func (a *CertificatesAPIService) CertificatesGetCollectionExecute(r ApiCertifica
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -441,8 +442,8 @@ func (a *CertificatesAPIService) CertificatesGetCollectionExecute(r ApiCertifica
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -452,8 +453,8 @@ func (a *CertificatesAPIService) CertificatesGetCollectionExecute(r ApiCertifica
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
@@ -472,9 +473,9 @@ func (a *CertificatesAPIService) CertificatesGetCollectionExecute(r ApiCertifica
 }
 
 type ApiCertificatesGetInstanceRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *CertificatesAPIService
-	id string
+	id         string
 }
 
 func (r ApiCertificatesGetInstanceRequest) Execute() (*CertificateResponse, *http.Response, error) {
@@ -484,26 +485,27 @@ func (r ApiCertificatesGetInstanceRequest) Execute() (*CertificateResponse, *htt
 /*
 CertificatesGetInstance Method for CertificatesGetInstance
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id the id of the requested resource
- @return ApiCertificatesGetInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id the id of the requested resource
+	@return ApiCertificatesGetInstanceRequest
 */
 func (a *CertificatesAPIService) CertificatesGetInstance(ctx context.Context, id string) ApiCertificatesGetInstanceRequest {
 	return ApiCertificatesGetInstanceRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return CertificateResponse
+//
+//	@return CertificateResponse
 func (a *CertificatesAPIService) CertificatesGetInstanceExecute(r ApiCertificatesGetInstanceRequest) (*CertificateResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CertificateResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CertificateResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CertificatesAPIService.CertificatesGetInstance")
@@ -564,8 +566,8 @@ func (a *CertificatesAPIService) CertificatesGetInstanceExecute(r ApiCertificate
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -575,8 +577,8 @@ func (a *CertificatesAPIService) CertificatesGetInstanceExecute(r ApiCertificate
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -586,8 +588,8 @@ func (a *CertificatesAPIService) CertificatesGetInstanceExecute(r ApiCertificate
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -597,8 +599,8 @@ func (a *CertificatesAPIService) CertificatesGetInstanceExecute(r ApiCertificate
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
@@ -617,9 +619,9 @@ func (a *CertificatesAPIService) CertificatesGetInstanceExecute(r ApiCertificate
 }
 
 type ApiCertificatesUpdateInstanceRequest struct {
-	ctx context.Context
-	ApiService *CertificatesAPIService
-	id string
+	ctx                      context.Context
+	ApiService               *CertificatesAPIService
+	id                       string
 	certificateUpdateRequest *CertificateUpdateRequest
 }
 
@@ -636,26 +638,27 @@ func (r ApiCertificatesUpdateInstanceRequest) Execute() (*CertificateResponse, *
 /*
 CertificatesUpdateInstance Method for CertificatesUpdateInstance
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id the id of the requested resource
- @return ApiCertificatesUpdateInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id the id of the requested resource
+	@return ApiCertificatesUpdateInstanceRequest
 */
 func (a *CertificatesAPIService) CertificatesUpdateInstance(ctx context.Context, id string) ApiCertificatesUpdateInstanceRequest {
 	return ApiCertificatesUpdateInstanceRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return CertificateResponse
+//
+//	@return CertificateResponse
 func (a *CertificatesAPIService) CertificatesUpdateInstanceExecute(r ApiCertificatesUpdateInstanceRequest) (*CertificateResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CertificateResponse
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CertificateResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CertificatesAPIService.CertificatesUpdateInstance")
@@ -721,8 +724,8 @@ func (a *CertificatesAPIService) CertificatesUpdateInstanceExecute(r ApiCertific
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -732,8 +735,8 @@ func (a *CertificatesAPIService) CertificatesUpdateInstanceExecute(r ApiCertific
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -743,8 +746,8 @@ func (a *CertificatesAPIService) CertificatesUpdateInstanceExecute(r ApiCertific
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -754,8 +757,8 @@ func (a *CertificatesAPIService) CertificatesUpdateInstanceExecute(r ApiCertific
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -765,8 +768,8 @@ func (a *CertificatesAPIService) CertificatesUpdateInstanceExecute(r ApiCertific
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -776,8 +779,8 @@ func (a *CertificatesAPIService) CertificatesUpdateInstanceExecute(r ApiCertific
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

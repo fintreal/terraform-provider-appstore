@@ -72,7 +72,7 @@ func (o *ProfileCreateRequestDataRelationshipsDevices) SetData(v []ProfileCreate
 }
 
 func (o ProfileCreateRequestDataRelationshipsDevices) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -122,5 +122,3 @@ func (v *NullableProfileCreateRequestDataRelationshipsDevices) UnmarshalJSON(src
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

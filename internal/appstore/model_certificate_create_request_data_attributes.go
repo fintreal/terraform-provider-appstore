@@ -11,8 +11,8 @@ API version: 3.8.0
 package openapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,7 +21,7 @@ var _ MappedNullable = &CertificateCreateRequestDataAttributes{}
 
 // CertificateCreateRequestDataAttributes struct for CertificateCreateRequestDataAttributes
 type CertificateCreateRequestDataAttributes struct {
-	CsrContent string `json:"csrContent"`
+	CsrContent      string          `json:"csrContent"`
 	CertificateType CertificateType `json:"certificateType"`
 }
 
@@ -95,7 +95,7 @@ func (o *CertificateCreateRequestDataAttributes) SetCertificateType(v Certificat
 }
 
 func (o CertificateCreateRequestDataAttributes) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -123,10 +123,10 @@ func (o *CertificateCreateRequestDataAttributes) UnmarshalJSON(data []byte) (err
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -181,5 +181,3 @@ func (v *NullableCertificateCreateRequestDataAttributes) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

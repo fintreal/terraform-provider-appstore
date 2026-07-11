@@ -19,9 +19,9 @@ var _ MappedNullable = &AppAttributes{}
 
 // AppAttributes struct for AppAttributes
 type AppAttributes struct {
-	Name *string `json:"name,omitempty"`
-	BundleId *string `json:"bundleId,omitempty"`
-	Sku *string `json:"sku,omitempty"`
+	Name          *string `json:"name,omitempty"`
+	BundleId      *string `json:"bundleId,omitempty"`
+	Sku           *string `json:"sku,omitempty"`
 	PrimaryLocale *string `json:"primaryLocale,omitempty"`
 }
 
@@ -171,7 +171,7 @@ func (o *AppAttributes) SetPrimaryLocale(v string) {
 }
 
 func (o AppAttributes) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -230,5 +230,3 @@ func (v *NullableAppAttributes) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

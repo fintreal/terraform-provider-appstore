@@ -20,9 +20,9 @@ var _ MappedNullable = &ProfileResponseIncludedInner{}
 
 // ProfileResponseIncludedInner struct for ProfileResponseIncludedInner
 type ProfileResponseIncludedInner struct {
-	BundleId *BundleId
+	BundleId    *BundleId
 	Certificate *Certificate
-	Device *Device
+	Device      *Device
 }
 
 // Unmarshal JSON data into any of the pointers in the struct
@@ -38,7 +38,7 @@ func (dst *ProfileResponseIncludedInner) UnmarshalJSON(data []byte) error {
 	// check if the discriminator value is 'bundleIds'
 	if jsonDict["type"] == "bundleIds" {
 		// try to unmarshal JSON data into BundleId
-		err = json.Unmarshal(data, &dst.BundleId);
+		err = json.Unmarshal(data, &dst.BundleId)
 		if err == nil {
 			jsonBundleId, _ := json.Marshal(dst.BundleId)
 			if string(jsonBundleId) == "{}" { // empty struct
@@ -54,7 +54,7 @@ func (dst *ProfileResponseIncludedInner) UnmarshalJSON(data []byte) error {
 	// check if the discriminator value is 'certificates'
 	if jsonDict["type"] == "certificates" {
 		// try to unmarshal JSON data into Certificate
-		err = json.Unmarshal(data, &dst.Certificate);
+		err = json.Unmarshal(data, &dst.Certificate)
 		if err == nil {
 			jsonCertificate, _ := json.Marshal(dst.Certificate)
 			if string(jsonCertificate) == "{}" { // empty struct
@@ -70,7 +70,7 @@ func (dst *ProfileResponseIncludedInner) UnmarshalJSON(data []byte) error {
 	// check if the discriminator value is 'devices'
 	if jsonDict["type"] == "devices" {
 		// try to unmarshal JSON data into Device
-		err = json.Unmarshal(data, &dst.Device);
+		err = json.Unmarshal(data, &dst.Device)
 		if err == nil {
 			jsonDevice, _ := json.Marshal(dst.Device)
 			if string(jsonDevice) == "{}" { // empty struct
@@ -84,7 +84,7 @@ func (dst *ProfileResponseIncludedInner) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal JSON data into BundleId
-	err = json.Unmarshal(data, &dst.BundleId);
+	err = json.Unmarshal(data, &dst.BundleId)
 	if err == nil {
 		jsonBundleId, _ := json.Marshal(dst.BundleId)
 		if string(jsonBundleId) == "{}" { // empty struct
@@ -97,7 +97,7 @@ func (dst *ProfileResponseIncludedInner) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal JSON data into Certificate
-	err = json.Unmarshal(data, &dst.Certificate);
+	err = json.Unmarshal(data, &dst.Certificate)
 	if err == nil {
 		jsonCertificate, _ := json.Marshal(dst.Certificate)
 		if string(jsonCertificate) == "{}" { // empty struct
@@ -110,7 +110,7 @@ func (dst *ProfileResponseIncludedInner) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal JSON data into Device
-	err = json.Unmarshal(data, &dst.Device);
+	err = json.Unmarshal(data, &dst.Device)
 	if err == nil {
 		jsonDevice, _ := json.Marshal(dst.Device)
 		if string(jsonDevice) == "{}" { // empty struct
@@ -155,7 +155,7 @@ func (src ProfileResponseIncludedInner) ToMap() (map[string]interface{}, error) 
 		return src.Device.ToMap()
 	}
 
-    return nil, nil // no data in anyOf schemas
+	return nil, nil // no data in anyOf schemas
 }
 
 type NullableProfileResponseIncludedInner struct {
@@ -193,5 +193,3 @@ func (v *NullableProfileResponseIncludedInner) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

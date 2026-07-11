@@ -20,26 +20,26 @@ type AppStoreVersionState string
 
 // List of AppStoreVersionState
 const (
-	ACCEPTED AppStoreVersionState = "ACCEPTED"
-	DEVELOPER_REMOVED_FROM_SALE AppStoreVersionState = "DEVELOPER_REMOVED_FROM_SALE"
-	DEVELOPER_REJECTED AppStoreVersionState = "DEVELOPER_REJECTED"
-	IN_REVIEW AppStoreVersionState = "IN_REVIEW"
-	INVALID_BINARY AppStoreVersionState = "INVALID_BINARY"
-	METADATA_REJECTED AppStoreVersionState = "METADATA_REJECTED"
-	PENDING_APPLE_RELEASE AppStoreVersionState = "PENDING_APPLE_RELEASE"
-	PENDING_CONTRACT AppStoreVersionState = "PENDING_CONTRACT"
-	PENDING_DEVELOPER_RELEASE AppStoreVersionState = "PENDING_DEVELOPER_RELEASE"
-	PREPARE_FOR_SUBMISSION AppStoreVersionState = "PREPARE_FOR_SUBMISSION"
-	PREORDER_READY_FOR_SALE AppStoreVersionState = "PREORDER_READY_FOR_SALE"
-	PROCESSING_FOR_APP_STORE AppStoreVersionState = "PROCESSING_FOR_APP_STORE"
-	READY_FOR_REVIEW AppStoreVersionState = "READY_FOR_REVIEW"
-	READY_FOR_SALE AppStoreVersionState = "READY_FOR_SALE"
-	REJECTED AppStoreVersionState = "REJECTED"
-	REMOVED_FROM_SALE AppStoreVersionState = "REMOVED_FROM_SALE"
+	ACCEPTED                      AppStoreVersionState = "ACCEPTED"
+	DEVELOPER_REMOVED_FROM_SALE   AppStoreVersionState = "DEVELOPER_REMOVED_FROM_SALE"
+	DEVELOPER_REJECTED            AppStoreVersionState = "DEVELOPER_REJECTED"
+	IN_REVIEW                     AppStoreVersionState = "IN_REVIEW"
+	INVALID_BINARY                AppStoreVersionState = "INVALID_BINARY"
+	METADATA_REJECTED             AppStoreVersionState = "METADATA_REJECTED"
+	PENDING_APPLE_RELEASE         AppStoreVersionState = "PENDING_APPLE_RELEASE"
+	PENDING_CONTRACT              AppStoreVersionState = "PENDING_CONTRACT"
+	PENDING_DEVELOPER_RELEASE     AppStoreVersionState = "PENDING_DEVELOPER_RELEASE"
+	PREPARE_FOR_SUBMISSION        AppStoreVersionState = "PREPARE_FOR_SUBMISSION"
+	PREORDER_READY_FOR_SALE       AppStoreVersionState = "PREORDER_READY_FOR_SALE"
+	PROCESSING_FOR_APP_STORE      AppStoreVersionState = "PROCESSING_FOR_APP_STORE"
+	READY_FOR_REVIEW              AppStoreVersionState = "READY_FOR_REVIEW"
+	READY_FOR_SALE                AppStoreVersionState = "READY_FOR_SALE"
+	REJECTED                      AppStoreVersionState = "REJECTED"
+	REMOVED_FROM_SALE             AppStoreVersionState = "REMOVED_FROM_SALE"
 	WAITING_FOR_EXPORT_COMPLIANCE AppStoreVersionState = "WAITING_FOR_EXPORT_COMPLIANCE"
-	WAITING_FOR_REVIEW AppStoreVersionState = "WAITING_FOR_REVIEW"
-	REPLACED_WITH_NEW_VERSION AppStoreVersionState = "REPLACED_WITH_NEW_VERSION"
-	NOT_APPLICABLE AppStoreVersionState = "NOT_APPLICABLE"
+	WAITING_FOR_REVIEW            AppStoreVersionState = "WAITING_FOR_REVIEW"
+	REPLACED_WITH_NEW_VERSION     AppStoreVersionState = "REPLACED_WITH_NEW_VERSION"
+	NOT_APPLICABLE                AppStoreVersionState = "NOT_APPLICABLE"
 )
 
 // All allowed values of AppStoreVersionState enum
@@ -144,4 +144,3 @@ func (v *NullableAppStoreVersionState) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -19,9 +19,9 @@ var _ MappedNullable = &BundleIdRelationshipsProfiles{}
 
 // BundleIdRelationshipsProfiles struct for BundleIdRelationshipsProfiles
 type BundleIdRelationshipsProfiles struct {
-	Links *RelationshipLinks `json:"links,omitempty"`
-	Meta *PagingInformation `json:"meta,omitempty"`
-	Data []BundleIdRelationshipsProfilesDataInner `json:"data,omitempty"`
+	Links *RelationshipLinks                       `json:"links,omitempty"`
+	Meta  *PagingInformation                       `json:"meta,omitempty"`
+	Data  []BundleIdRelationshipsProfilesDataInner `json:"data,omitempty"`
 }
 
 // NewBundleIdRelationshipsProfiles instantiates a new BundleIdRelationshipsProfiles object
@@ -138,7 +138,7 @@ func (o *BundleIdRelationshipsProfiles) SetData(v []BundleIdRelationshipsProfile
 }
 
 func (o BundleIdRelationshipsProfiles) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -194,5 +194,3 @@ func (v *NullableBundleIdRelationshipsProfiles) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

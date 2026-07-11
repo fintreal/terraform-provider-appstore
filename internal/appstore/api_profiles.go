@@ -19,13 +19,12 @@ import (
 	"strings"
 )
 
-
 // ProfilesAPIService ProfilesAPI service
 type ProfilesAPIService service
 
 type ApiProfilesCreateInstanceRequest struct {
-	ctx context.Context
-	ApiService *ProfilesAPIService
+	ctx                  context.Context
+	ApiService           *ProfilesAPIService
 	profileCreateRequest *ProfileCreateRequest
 }
 
@@ -42,24 +41,25 @@ func (r ApiProfilesCreateInstanceRequest) Execute() (*ProfileResponse, *http.Res
 /*
 ProfilesCreateInstance Method for ProfilesCreateInstance
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiProfilesCreateInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiProfilesCreateInstanceRequest
 */
 func (a *ProfilesAPIService) ProfilesCreateInstance(ctx context.Context) ApiProfilesCreateInstanceRequest {
 	return ApiProfilesCreateInstanceRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ProfileResponse
+//
+//	@return ProfileResponse
 func (a *ProfilesAPIService) ProfilesCreateInstanceExecute(r ApiProfilesCreateInstanceRequest) (*ProfileResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProfileResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProfileResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProfilesAPIService.ProfilesCreateInstance")
@@ -124,8 +124,8 @@ func (a *ProfilesAPIService) ProfilesCreateInstanceExecute(r ApiProfilesCreateIn
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -135,8 +135,8 @@ func (a *ProfilesAPIService) ProfilesCreateInstanceExecute(r ApiProfilesCreateIn
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -146,8 +146,8 @@ func (a *ProfilesAPIService) ProfilesCreateInstanceExecute(r ApiProfilesCreateIn
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -157,8 +157,8 @@ func (a *ProfilesAPIService) ProfilesCreateInstanceExecute(r ApiProfilesCreateIn
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -168,8 +168,8 @@ func (a *ProfilesAPIService) ProfilesCreateInstanceExecute(r ApiProfilesCreateIn
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -187,9 +187,9 @@ func (a *ProfilesAPIService) ProfilesCreateInstanceExecute(r ApiProfilesCreateIn
 }
 
 type ApiProfilesDeleteInstanceRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *ProfilesAPIService
-	id string
+	id         string
 }
 
 func (r ApiProfilesDeleteInstanceRequest) Execute() (*http.Response, error) {
@@ -199,24 +199,24 @@ func (r ApiProfilesDeleteInstanceRequest) Execute() (*http.Response, error) {
 /*
 ProfilesDeleteInstance Method for ProfilesDeleteInstance
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id the id of the requested resource
- @return ApiProfilesDeleteInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id the id of the requested resource
+	@return ApiProfilesDeleteInstanceRequest
 */
 func (a *ProfilesAPIService) ProfilesDeleteInstance(ctx context.Context, id string) ApiProfilesDeleteInstanceRequest {
 	return ApiProfilesDeleteInstanceRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *ProfilesAPIService) ProfilesDeleteInstanceExecute(r ApiProfilesDeleteInstanceRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProfilesAPIService.ProfilesDeleteInstance")
@@ -277,8 +277,8 @@ func (a *ProfilesAPIService) ProfilesDeleteInstanceExecute(r ApiProfilesDeleteIn
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -288,8 +288,8 @@ func (a *ProfilesAPIService) ProfilesDeleteInstanceExecute(r ApiProfilesDeleteIn
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -299,8 +299,8 @@ func (a *ProfilesAPIService) ProfilesDeleteInstanceExecute(r ApiProfilesDeleteIn
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -310,8 +310,8 @@ func (a *ProfilesAPIService) ProfilesDeleteInstanceExecute(r ApiProfilesDeleteIn
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -321,8 +321,8 @@ func (a *ProfilesAPIService) ProfilesDeleteInstanceExecute(r ApiProfilesDeleteIn
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		return localVarHTTPResponse, newErr
@@ -332,7 +332,7 @@ func (a *ProfilesAPIService) ProfilesDeleteInstanceExecute(r ApiProfilesDeleteIn
 }
 
 type ApiProfilesGetCollectionRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *ProfilesAPIService
 }
 
@@ -343,24 +343,25 @@ func (r ApiProfilesGetCollectionRequest) Execute() (*ProfilesResponse, *http.Res
 /*
 ProfilesGetCollection Method for ProfilesGetCollection
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiProfilesGetCollectionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiProfilesGetCollectionRequest
 */
 func (a *ProfilesAPIService) ProfilesGetCollection(ctx context.Context) ApiProfilesGetCollectionRequest {
 	return ApiProfilesGetCollectionRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ProfilesResponse
+//
+//	@return ProfilesResponse
 func (a *ProfilesAPIService) ProfilesGetCollectionExecute(r ApiProfilesGetCollectionRequest) (*ProfilesResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProfilesResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProfilesResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProfilesAPIService.ProfilesGetCollection")
@@ -420,8 +421,8 @@ func (a *ProfilesAPIService) ProfilesGetCollectionExecute(r ApiProfilesGetCollec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -431,8 +432,8 @@ func (a *ProfilesAPIService) ProfilesGetCollectionExecute(r ApiProfilesGetCollec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -442,8 +443,8 @@ func (a *ProfilesAPIService) ProfilesGetCollectionExecute(r ApiProfilesGetCollec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
@@ -462,10 +463,10 @@ func (a *ProfilesAPIService) ProfilesGetCollectionExecute(r ApiProfilesGetCollec
 }
 
 type ApiProfilesGetInstanceRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *ProfilesAPIService
-	id string
-	include *[]string
+	id         string
+	include    *[]string
 }
 
 // comma-separated list of relationships to include
@@ -481,26 +482,27 @@ func (r ApiProfilesGetInstanceRequest) Execute() (*ProfileResponse, *http.Respon
 /*
 ProfilesGetInstance Method for ProfilesGetInstance
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id the id of the requested resource
- @return ApiProfilesGetInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id the id of the requested resource
+	@return ApiProfilesGetInstanceRequest
 */
 func (a *ProfilesAPIService) ProfilesGetInstance(ctx context.Context, id string) ApiProfilesGetInstanceRequest {
 	return ApiProfilesGetInstanceRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return ProfileResponse
+//
+//	@return ProfileResponse
 func (a *ProfilesAPIService) ProfilesGetInstanceExecute(r ApiProfilesGetInstanceRequest) (*ProfileResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProfileResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProfileResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProfilesAPIService.ProfilesGetInstance")
@@ -564,8 +566,8 @@ func (a *ProfilesAPIService) ProfilesGetInstanceExecute(r ApiProfilesGetInstance
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -575,8 +577,8 @@ func (a *ProfilesAPIService) ProfilesGetInstanceExecute(r ApiProfilesGetInstance
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -586,8 +588,8 @@ func (a *ProfilesAPIService) ProfilesGetInstanceExecute(r ApiProfilesGetInstance
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -597,8 +599,8 @@ func (a *ProfilesAPIService) ProfilesGetInstanceExecute(r ApiProfilesGetInstance
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr

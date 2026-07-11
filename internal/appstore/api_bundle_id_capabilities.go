@@ -19,13 +19,12 @@ import (
 	"strings"
 )
 
-
 // BundleIdCapabilitiesAPIService BundleIdCapabilitiesAPI service
 type BundleIdCapabilitiesAPIService service
 
 type ApiBundleIdCapabilitiesCreateInstanceRequest struct {
-	ctx context.Context
-	ApiService *BundleIdCapabilitiesAPIService
+	ctx                             context.Context
+	ApiService                      *BundleIdCapabilitiesAPIService
 	bundleIdCapabilityCreateRequest *BundleIdCapabilityCreateRequest
 }
 
@@ -42,24 +41,25 @@ func (r ApiBundleIdCapabilitiesCreateInstanceRequest) Execute() (*BundleIdCapabi
 /*
 BundleIdCapabilitiesCreateInstance Method for BundleIdCapabilitiesCreateInstance
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiBundleIdCapabilitiesCreateInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiBundleIdCapabilitiesCreateInstanceRequest
 */
 func (a *BundleIdCapabilitiesAPIService) BundleIdCapabilitiesCreateInstance(ctx context.Context) ApiBundleIdCapabilitiesCreateInstanceRequest {
 	return ApiBundleIdCapabilitiesCreateInstanceRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return BundleIdCapabilityResponse
+//
+//	@return BundleIdCapabilityResponse
 func (a *BundleIdCapabilitiesAPIService) BundleIdCapabilitiesCreateInstanceExecute(r ApiBundleIdCapabilitiesCreateInstanceRequest) (*BundleIdCapabilityResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *BundleIdCapabilityResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *BundleIdCapabilityResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BundleIdCapabilitiesAPIService.BundleIdCapabilitiesCreateInstance")
@@ -124,8 +124,8 @@ func (a *BundleIdCapabilitiesAPIService) BundleIdCapabilitiesCreateInstanceExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -135,8 +135,8 @@ func (a *BundleIdCapabilitiesAPIService) BundleIdCapabilitiesCreateInstanceExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -146,8 +146,8 @@ func (a *BundleIdCapabilitiesAPIService) BundleIdCapabilitiesCreateInstanceExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -157,8 +157,8 @@ func (a *BundleIdCapabilitiesAPIService) BundleIdCapabilitiesCreateInstanceExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -168,8 +168,8 @@ func (a *BundleIdCapabilitiesAPIService) BundleIdCapabilitiesCreateInstanceExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -187,9 +187,9 @@ func (a *BundleIdCapabilitiesAPIService) BundleIdCapabilitiesCreateInstanceExecu
 }
 
 type ApiBundleIdCapabilitiesDeleteInstanceRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *BundleIdCapabilitiesAPIService
-	id string
+	id         string
 }
 
 func (r ApiBundleIdCapabilitiesDeleteInstanceRequest) Execute() (*http.Response, error) {
@@ -199,24 +199,24 @@ func (r ApiBundleIdCapabilitiesDeleteInstanceRequest) Execute() (*http.Response,
 /*
 BundleIdCapabilitiesDeleteInstance Method for BundleIdCapabilitiesDeleteInstance
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id the id of the requested resource
- @return ApiBundleIdCapabilitiesDeleteInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id the id of the requested resource
+	@return ApiBundleIdCapabilitiesDeleteInstanceRequest
 */
 func (a *BundleIdCapabilitiesAPIService) BundleIdCapabilitiesDeleteInstance(ctx context.Context, id string) ApiBundleIdCapabilitiesDeleteInstanceRequest {
 	return ApiBundleIdCapabilitiesDeleteInstanceRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *BundleIdCapabilitiesAPIService) BundleIdCapabilitiesDeleteInstanceExecute(r ApiBundleIdCapabilitiesDeleteInstanceRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BundleIdCapabilitiesAPIService.BundleIdCapabilitiesDeleteInstance")
@@ -277,8 +277,8 @@ func (a *BundleIdCapabilitiesAPIService) BundleIdCapabilitiesDeleteInstanceExecu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -288,8 +288,8 @@ func (a *BundleIdCapabilitiesAPIService) BundleIdCapabilitiesDeleteInstanceExecu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -299,8 +299,8 @@ func (a *BundleIdCapabilitiesAPIService) BundleIdCapabilitiesDeleteInstanceExecu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -310,8 +310,8 @@ func (a *BundleIdCapabilitiesAPIService) BundleIdCapabilitiesDeleteInstanceExecu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -321,8 +321,8 @@ func (a *BundleIdCapabilitiesAPIService) BundleIdCapabilitiesDeleteInstanceExecu
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		return localVarHTTPResponse, newErr
@@ -332,9 +332,9 @@ func (a *BundleIdCapabilitiesAPIService) BundleIdCapabilitiesDeleteInstanceExecu
 }
 
 type ApiBundleIdCapabilitiesUpdateInstanceRequest struct {
-	ctx context.Context
-	ApiService *BundleIdCapabilitiesAPIService
-	id string
+	ctx                             context.Context
+	ApiService                      *BundleIdCapabilitiesAPIService
+	id                              string
 	bundleIdCapabilityUpdateRequest *BundleIdCapabilityUpdateRequest
 }
 
@@ -351,26 +351,27 @@ func (r ApiBundleIdCapabilitiesUpdateInstanceRequest) Execute() (*BundleIdCapabi
 /*
 BundleIdCapabilitiesUpdateInstance Method for BundleIdCapabilitiesUpdateInstance
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id the id of the requested resource
- @return ApiBundleIdCapabilitiesUpdateInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id the id of the requested resource
+	@return ApiBundleIdCapabilitiesUpdateInstanceRequest
 */
 func (a *BundleIdCapabilitiesAPIService) BundleIdCapabilitiesUpdateInstance(ctx context.Context, id string) ApiBundleIdCapabilitiesUpdateInstanceRequest {
 	return ApiBundleIdCapabilitiesUpdateInstanceRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return BundleIdCapabilityResponse
+//
+//	@return BundleIdCapabilityResponse
 func (a *BundleIdCapabilitiesAPIService) BundleIdCapabilitiesUpdateInstanceExecute(r ApiBundleIdCapabilitiesUpdateInstanceRequest) (*BundleIdCapabilityResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *BundleIdCapabilityResponse
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *BundleIdCapabilityResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BundleIdCapabilitiesAPIService.BundleIdCapabilitiesUpdateInstance")
@@ -436,8 +437,8 @@ func (a *BundleIdCapabilitiesAPIService) BundleIdCapabilitiesUpdateInstanceExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -447,8 +448,8 @@ func (a *BundleIdCapabilitiesAPIService) BundleIdCapabilitiesUpdateInstanceExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -458,8 +459,8 @@ func (a *BundleIdCapabilitiesAPIService) BundleIdCapabilitiesUpdateInstanceExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -469,8 +470,8 @@ func (a *BundleIdCapabilitiesAPIService) BundleIdCapabilitiesUpdateInstanceExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
@@ -480,8 +481,8 @@ func (a *BundleIdCapabilitiesAPIService) BundleIdCapabilitiesUpdateInstanceExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -491,8 +492,8 @@ func (a *BundleIdCapabilitiesAPIService) BundleIdCapabilitiesUpdateInstanceExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

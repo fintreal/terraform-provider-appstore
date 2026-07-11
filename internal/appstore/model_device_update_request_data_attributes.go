@@ -19,7 +19,7 @@ var _ MappedNullable = &DeviceUpdateRequestDataAttributes{}
 
 // DeviceUpdateRequestDataAttributes struct for DeviceUpdateRequestDataAttributes
 type DeviceUpdateRequestDataAttributes struct {
-	Name *string `json:"name,omitempty"`
+	Name   *string `json:"name,omitempty"`
 	Status *string `json:"status,omitempty"`
 }
 
@@ -105,7 +105,7 @@ func (o *DeviceUpdateRequestDataAttributes) SetStatus(v string) {
 }
 
 func (o DeviceUpdateRequestDataAttributes) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -158,5 +158,3 @@ func (v *NullableDeviceUpdateRequestDataAttributes) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -19,7 +19,7 @@ import (
 // ErrorResponseErrorsInnerSource - struct for ErrorResponseErrorsInnerSource
 type ErrorResponseErrorsInnerSource struct {
 	ErrorSourceParameter *ErrorSourceParameter
-	ErrorSourcePointer *ErrorSourcePointer
+	ErrorSourcePointer   *ErrorSourcePointer
 }
 
 // ErrorSourceParameterAsErrorResponseErrorsInnerSource is a convenience function that returns ErrorSourceParameter wrapped in ErrorResponseErrorsInnerSource
@@ -35,7 +35,6 @@ func ErrorSourcePointerAsErrorResponseErrorsInnerSource(v *ErrorSourcePointer) E
 		ErrorSourcePointer: v,
 	}
 }
-
 
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *ErrorResponseErrorsInnerSource) UnmarshalJSON(data []byte) error {
@@ -102,7 +101,7 @@ func (src ErrorResponseErrorsInnerSource) MarshalJSON() ([]byte, error) {
 }
 
 // Get the actual instance
-func (obj *ErrorResponseErrorsInnerSource) GetActualInstance() (interface{}) {
+func (obj *ErrorResponseErrorsInnerSource) GetActualInstance() interface{} {
 	if obj == nil {
 		return nil
 	}
@@ -119,7 +118,7 @@ func (obj *ErrorResponseErrorsInnerSource) GetActualInstance() (interface{}) {
 }
 
 // Get the actual instance value
-func (obj ErrorResponseErrorsInnerSource) GetActualInstanceValue() (interface{}) {
+func (obj ErrorResponseErrorsInnerSource) GetActualInstanceValue() interface{} {
 	if obj.ErrorSourceParameter != nil {
 		return *obj.ErrorSourceParameter
 	}
@@ -167,5 +166,3 @@ func (v *NullableErrorResponseErrorsInnerSource) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

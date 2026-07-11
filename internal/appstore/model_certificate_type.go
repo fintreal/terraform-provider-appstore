@@ -20,24 +20,24 @@ type CertificateType string
 
 // List of CertificateType
 const (
-	APPLE_PAY_ CertificateType = "APPLE_PAY"
+	APPLE_PAY_                  CertificateType = "APPLE_PAY"
 	APPLE_PAY_MERCHANT_IDENTITY CertificateType = "APPLE_PAY_MERCHANT_IDENTITY"
-	APPLE_PAY_PSP_IDENTITY CertificateType = "APPLE_PAY_PSP_IDENTITY"
-	APPLE_PAY_RSA CertificateType = "APPLE_PAY_RSA"
-	DEVELOPER_ID_KEXT CertificateType = "DEVELOPER_ID_KEXT"
-	DEVELOPER_ID_KEXT_G2 CertificateType = "DEVELOPER_ID_KEXT_G2"
-	DEVELOPER_ID_APPLICATION CertificateType = "DEVELOPER_ID_APPLICATION"
+	APPLE_PAY_PSP_IDENTITY      CertificateType = "APPLE_PAY_PSP_IDENTITY"
+	APPLE_PAY_RSA               CertificateType = "APPLE_PAY_RSA"
+	DEVELOPER_ID_KEXT           CertificateType = "DEVELOPER_ID_KEXT"
+	DEVELOPER_ID_KEXT_G2        CertificateType = "DEVELOPER_ID_KEXT_G2"
+	DEVELOPER_ID_APPLICATION    CertificateType = "DEVELOPER_ID_APPLICATION"
 	DEVELOPER_ID_APPLICATION_G2 CertificateType = "DEVELOPER_ID_APPLICATION_G2"
-	DEVELOPMENT CertificateType = "DEVELOPMENT"
-	DISTRIBUTION CertificateType = "DISTRIBUTION"
-	IDENTITY_ACCESS CertificateType = "IDENTITY_ACCESS"
-	IOS_DEVELOPMENT CertificateType = "IOS_DEVELOPMENT"
-	IOS_DISTRIBUTION CertificateType = "IOS_DISTRIBUTION"
-	MAC_APP_DISTRIBUTION CertificateType = "MAC_APP_DISTRIBUTION"
-	MAC_INSTALLER_DISTRIBUTION CertificateType = "MAC_INSTALLER_DISTRIBUTION"
-	MAC_APP_DEVELOPMENT CertificateType = "MAC_APP_DEVELOPMENT"
-	PASS_TYPE_ID CertificateType = "PASS_TYPE_ID"
-	PASS_TYPE_ID_WITH_NFC CertificateType = "PASS_TYPE_ID_WITH_NFC"
+	DEVELOPMENT                 CertificateType = "DEVELOPMENT"
+	DISTRIBUTION                CertificateType = "DISTRIBUTION"
+	IDENTITY_ACCESS             CertificateType = "IDENTITY_ACCESS"
+	IOS_DEVELOPMENT             CertificateType = "IOS_DEVELOPMENT"
+	IOS_DISTRIBUTION            CertificateType = "IOS_DISTRIBUTION"
+	MAC_APP_DISTRIBUTION        CertificateType = "MAC_APP_DISTRIBUTION"
+	MAC_INSTALLER_DISTRIBUTION  CertificateType = "MAC_INSTALLER_DISTRIBUTION"
+	MAC_APP_DEVELOPMENT         CertificateType = "MAC_APP_DEVELOPMENT"
+	PASS_TYPE_ID                CertificateType = "PASS_TYPE_ID"
+	PASS_TYPE_ID_WITH_NFC       CertificateType = "PASS_TYPE_ID_WITH_NFC"
 )
 
 // All allowed values of CertificateType enum
@@ -140,4 +140,3 @@ func (v *NullableCertificateType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

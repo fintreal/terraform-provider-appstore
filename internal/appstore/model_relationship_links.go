@@ -19,7 +19,7 @@ var _ MappedNullable = &RelationshipLinks{}
 
 // RelationshipLinks struct for RelationshipLinks
 type RelationshipLinks struct {
-	Self *string `json:"self,omitempty"`
+	Self    *string `json:"self,omitempty"`
 	Related *string `json:"related,omitempty"`
 }
 
@@ -105,7 +105,7 @@ func (o *RelationshipLinks) SetRelated(v string) {
 }
 
 func (o RelationshipLinks) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -158,5 +158,3 @@ func (v *NullableRelationshipLinks) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

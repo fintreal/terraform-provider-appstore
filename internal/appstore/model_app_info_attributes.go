@@ -20,7 +20,7 @@ var _ MappedNullable = &AppInfoAttributes{}
 // AppInfoAttributes struct for AppInfoAttributes
 type AppInfoAttributes struct {
 	AppStoreState *AppStoreVersionState `json:"appStoreState,omitempty"`
-	State *string `json:"state,omitempty"`
+	State         *string               `json:"state,omitempty"`
 }
 
 // NewAppInfoAttributes instantiates a new AppInfoAttributes object
@@ -105,7 +105,7 @@ func (o *AppInfoAttributes) SetState(v string) {
 }
 
 func (o AppInfoAttributes) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -158,5 +158,3 @@ func (v *NullableAppInfoAttributes) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

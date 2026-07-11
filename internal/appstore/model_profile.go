@@ -11,8 +11,8 @@ API version: 3.8.0
 package openapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,9 +21,9 @@ var _ MappedNullable = &Profile{}
 
 // Profile struct for Profile
 type Profile struct {
-	Type string `json:"type"`
-	Id string `json:"id"`
-	Attributes *ProfileAttributes `json:"attributes,omitempty"`
+	Type          string                `json:"type"`
+	Id            string                `json:"id"`
+	Attributes    *ProfileAttributes    `json:"attributes,omitempty"`
 	Relationships *ProfileRelationships `json:"relationships,omitempty"`
 }
 
@@ -161,7 +161,7 @@ func (o *Profile) SetRelationships(v ProfileRelationships) {
 }
 
 func (o Profile) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,10 +195,10 @@ func (o *Profile) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -253,5 +253,3 @@ func (v *NullableProfile) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

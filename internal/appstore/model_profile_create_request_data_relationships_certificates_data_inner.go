@@ -11,8 +11,8 @@ API version: 3.8.0
 package openapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -22,7 +22,7 @@ var _ MappedNullable = &ProfileCreateRequestDataRelationshipsCertificatesDataInn
 // ProfileCreateRequestDataRelationshipsCertificatesDataInner struct for ProfileCreateRequestDataRelationshipsCertificatesDataInner
 type ProfileCreateRequestDataRelationshipsCertificatesDataInner struct {
 	Type string `json:"type"`
-	Id string `json:"id"`
+	Id   string `json:"id"`
 }
 
 type _ProfileCreateRequestDataRelationshipsCertificatesDataInner ProfileCreateRequestDataRelationshipsCertificatesDataInner
@@ -95,7 +95,7 @@ func (o *ProfileCreateRequestDataRelationshipsCertificatesDataInner) SetId(v str
 }
 
 func (o ProfileCreateRequestDataRelationshipsCertificatesDataInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -123,10 +123,10 @@ func (o *ProfileCreateRequestDataRelationshipsCertificatesDataInner) UnmarshalJS
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -181,5 +181,3 @@ func (v *NullableProfileCreateRequestDataRelationshipsCertificatesDataInner) Unm
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

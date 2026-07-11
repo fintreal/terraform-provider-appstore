@@ -11,8 +11,8 @@ API version: 3.8.0
 package openapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,10 +21,10 @@ var _ MappedNullable = &BundleIdCreateRequestDataAttributes{}
 
 // BundleIdCreateRequestDataAttributes struct for BundleIdCreateRequestDataAttributes
 type BundleIdCreateRequestDataAttributes struct {
-	Name string `json:"name"`
-	Platform BundleIdPlatform `json:"platform"`
-	Identifier string `json:"identifier"`
-	SeedId *string `json:"seedId,omitempty"`
+	Name       string           `json:"name"`
+	Platform   BundleIdPlatform `json:"platform"`
+	Identifier string           `json:"identifier"`
+	SeedId     *string          `json:"seedId,omitempty"`
 }
 
 type _BundleIdCreateRequestDataAttributes BundleIdCreateRequestDataAttributes
@@ -154,7 +154,7 @@ func (o *BundleIdCreateRequestDataAttributes) SetSeedId(v string) {
 }
 
 func (o BundleIdCreateRequestDataAttributes) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -187,10 +187,10 @@ func (o *BundleIdCreateRequestDataAttributes) UnmarshalJSON(data []byte) (err er
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -245,5 +245,3 @@ func (v *NullableBundleIdCreateRequestDataAttributes) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
