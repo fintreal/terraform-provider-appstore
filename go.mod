@@ -3,7 +3,7 @@ module github.com/fintreal/terraform-provider-appstore
 go 1.25.8
 
 require (
-	github.com/fintreal/app-store-sdk-go v1.2.2
+	github.com/fintreal/app-store-sdk-go v1.3.0
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.40.1
 )
 
@@ -51,5 +51,3 @@ require (
 	google.golang.org/protobuf v1.36.11 // indirect
 	gopkg.in/validator.v2 v2.0.1 // indirect
 )
-
-replace github.com/fintreal/app-store-sdk-go => ../app-store-sdk-go
