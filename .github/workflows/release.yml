@@ -34,6 +34,9 @@ jobs:
       - name: Vet
         run: go vet ./...
 
+      - name: Unit tests
+        run: go test $(go list ./... | grep -v '/internal/appstore/test') -count=1
+
   Docs:
     runs-on: ubuntu-latest
     needs: [Verify]

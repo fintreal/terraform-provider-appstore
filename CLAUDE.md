@@ -8,9 +8,9 @@ Terraform provider for managing Apple App Store Connect resources (bundle identi
 
 ## Tech Stack
 
-- Go 1.24
+- Go 1.25
 - Terraform Plugin SDK v2
-- App Store Connect API via `github.com/fintreal/app-store-sdk-go`
+- App Store Connect API client, vendored in-repo at `internal/appstore/` (formerly the standalone `fintreal/app-store-sdk-go`, now folded in; package `openapi`)
 - GoReleaser for builds/releases
 - GPG-signed releases
 
@@ -29,13 +29,17 @@ provider/
   certificate/                   # appstore_certificate data source (read-only)
     schema.go
     operations/read.go
+internal/appstore/               # Vendored App Store Connect client (package openapi)
+  test/                          # Client live integration tests (need KEY_DATA/KEY_ID/ISSUER_ID)
 examples/                        # Example Terraform configs (used by tfplugindocs)
 docs/                            # Auto-generated provider documentation
 .github/
-  workflows/release.yml          # CI: docs generation, semver tagging, goreleaser
-  workflows/test.yml             # CI: integration test (apply + destroy)
+  workflows/release.yml          # CI: verify gate (build/vet/unit tests), semver, docs, goreleaser
+  workflows/test.yml             # CI: unit tests, folded SDK integration tests, terraform apply/destroy
   test/main.tf                   # Integration test Terraform config
 ```
+
+The folded integration tests read `KEY_DATA`/`KEY_ID`/`ISSUER_ID`; CI maps these from the existing `APPSTORE_KEY`/`APPSTORE_KEY_ID`/`APPSTORE_KEY_ISSUER_ID` secrets (same App Store Connect key). They also rely on one fixed distribution certificate (`64A2UF5HD4`) existing in the account.
 
 ## Key Commands
 
