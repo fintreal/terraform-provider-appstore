@@ -48,7 +48,7 @@ For local development, use a `~/.terraformrc` with `dev_overrides`:
 ```hcl
 provider_installation {
   dev_overrides {
-    "fintreal/appstore" = "/Users/adam/go/bin"
+    "fintreal/appstore" = "$HOME/go/bin"
   }
 }
 ```
