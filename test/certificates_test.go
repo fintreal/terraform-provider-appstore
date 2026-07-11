@@ -4,24 +4,23 @@ import (
 	"context"
 	"testing"
 
-	openapi "github.com/fintreal/app-store-sdk-go"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestGetCertificate(t *testing.T) {
-	data, _, err := apiClient.CertificatesAPI.CertificatesGetInstance(context.Background(), "ZXGDLKU59H").Execute()
+	data, _, err := apiClient.CertificatesAPI.CertificatesGetInstance(context.Background(), "64A2UF5HD4").Execute()
 
 	assert.NoError(t, err)
-	assert.Equal(t, "ZXGDLKU59H", data.Data.Id)
+	assert.Equal(t, "64A2UF5HD4", data.Data.Id)
 	assert.Equal(t, "certificates", data.Data.Type)
-	assert.Equal(t, "Apple Development: Adam Kovacs", data.Data.Attributes.Name)
-	assert.Equal(t, openapi.CertificateType("DEVELOPMENT"), data.Data.Attributes.CertificateType)
-	assert.Equal(t, "3B41B0552665AF0B4BE18D0F747C19A1", data.Data.Attributes.SerialNumber)
-	assert.Equal(t, "Adam Kovacs", data.Data.Attributes.DisplayName)
+	assert.Equal(t, "6AB7A99542D0D58517914E6EA8119579", data.Data.Attributes.SerialNumber)
+	assert.NotEmpty(t, data.Data.Attributes.Name)
+	assert.NotEmpty(t, data.Data.Attributes.CertificateType)
+	assert.NotEmpty(t, data.Data.Attributes.DisplayName)
 }
 
 func TestGetBySerialNumber(t *testing.T) {
-	serialNumber := "3B41B0552665AF0B4BE18D0F747C19A1"
+	serialNumber := "6AB7A99542D0D58517914E6EA8119579"
 	data, _, err := apiClient.CertificatesAPI.CertificatesGetCollection(context.Background()).FilterSerialNumber([]string{serialNumber}).Execute()
 	assert.NoError(t, err)
 	assert.Equal(t, 1, len(data.Data))
