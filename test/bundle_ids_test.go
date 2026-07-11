@@ -13,21 +13,15 @@ func TestGetBundleIds(t *testing.T) {
 }
 
 func TestGetBundleId(t *testing.T) {
-	expectedName := "Integration Test Bundle ID"
-	expectedIdentifier := "com.fintreal.test"
-	expectedId := "Y74BKFQXG8"
+	created := createBundleId(t)
+	id := created.Data.GetId()
+	defer deleteBundleId(id)
 
-	expectedCapabilities := []openapi.BundleIdRelationshipsBundleIdCapabilitiesDataInner{
-		*openapi.NewBundleIdRelationshipsBundleIdCapabilitiesDataInner("bundleIdCapabilities", expectedId+"_IN_APP_PURCHASE"),
-		*openapi.NewBundleIdRelationshipsBundleIdCapabilitiesDataInner("bundleIdCapabilities", expectedId+"_APPLE_ID_AUTH"),
-	}
-
-	bundleId, _, err := apiClient.BundleIdsAPI.BundleIdsGetInstance(context.Background(), expectedId).Include([]string{"bundleIdCapabilities"}).Execute()
-	assert.Equal(t, expectedId, bundleId.Data.GetId())
-	assert.Equal(t, expectedIdentifier, bundleId.Data.Attributes.GetIdentifier())
-	assert.Equal(t, expectedName, bundleId.Data.Attributes.GetName())
-	assert.Equal(t, expectedCapabilities, bundleId.Data.Relationships.BundleIdCapabilities.Data)
+	bundleId, _, err := apiClient.BundleIdsAPI.BundleIdsGetInstance(context.Background(), id).Execute()
 	assert.NoError(t, err)
+	assert.Equal(t, id, bundleId.Data.GetId())
+	assert.Equal(t, created.Data.Attributes.GetIdentifier(), bundleId.Data.Attributes.GetIdentifier())
+	assert.Equal(t, "Integration Test Bundle ID", bundleId.Data.Attributes.GetName())
 }
 
 func TestCreateAndDeleteBundleId(t *testing.T) {

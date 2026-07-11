@@ -9,10 +9,13 @@ import (
 )
 
 func TestCreateAndDeleteBundleIdCapability(t *testing.T) {
+	created := createBundleId(t)
+	bundleId := created.Data.GetId()
+	defer deleteBundleId(bundleId)
+
 	key := "APPLE_ID_AUTH_APP_CONSENT"
 	optionKey := "PRIMARY_APP_CONSENT"
 	capabilityType := "APPLE_ID_AUTH"
-	bundleId := "S65568LTPR"
 	input := *openapi.NewBundleIdCapabilityCreateRequest(
 		*openapi.NewBundleIdCapabilityCreateRequestData(
 			"bundleIdCapabilities",
@@ -33,6 +36,7 @@ func TestCreateAndDeleteBundleIdCapability(t *testing.T) {
 		),
 	)
 	data, _, err := apiClient.BundleIdCapabilitiesAPI.BundleIdCapabilitiesCreateInstance(context.Background()).BundleIdCapabilityCreateRequest(input).Execute()
+	assert.NoError(t, err)
 	assert.Equal(t, capabilityType, string(data.Data.Attributes.GetCapabilityType()))
 	assert.Equal(t, bundleId+"_"+capabilityType, data.Data.GetId())
 

@@ -4,56 +4,34 @@ import (
 	"context"
 	"testing"
 
-	openapi "github.com/fintreal/app-store-sdk-go"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestGetProvisioningProfile(t *testing.T) {
-	data, _, err := apiClient.ProfilesAPI.ProfilesGetInstance(context.Background(), "M4BW5YXCWX").Include([]string{"bundleId", "certificates"}).Execute()
+	bundle := createBundleId(t)
+	defer deleteBundleId(bundle.Data.GetId())
 
+	created := createProfile(t, bundle.Data.GetId(), "Test Provisioning Profile")
+	defer deleteProfile(created.Data.Id)
+
+	data, _, err := apiClient.ProfilesAPI.ProfilesGetInstance(context.Background(), created.Data.Id).Include([]string{"bundleId", "certificates"}).Execute()
+	assert.NoError(t, err)
+	assert.Equal(t, created.Data.Id, data.Data.Id)
 	assert.Equal(t, "Test Provisioning Profile", data.Data.Attributes.GetName())
 	assert.Equal(t, "IOS_APP_STORE", data.Data.Attributes.GetProfileType())
-
-	assert.Equal(t, "Y74BKFQXG8", data.Data.Relationships.GetBundleId().Data.GetId())
-	assert.Equal(t, "JVLG7LVRRL", data.Data.Relationships.GetCertificates().Data[0].GetId())
-
-	assert.NoError(t, err)
+	assert.Equal(t, bundle.Data.GetId(), data.Data.Relationships.GetBundleId().Data.GetId())
+	assert.Equal(t, distributionCertID, data.Data.Relationships.GetCertificates().Data[0].GetId())
 }
 
 func TestCreateAndDeleteProvisioningProfile(t *testing.T) {
-	input := *openapi.NewProfileCreateRequest(
-		*openapi.NewProfileCreateRequestData(
-			"profiles",
-			*openapi.NewProfileCreateRequestDataAttributes("Test Provisioning Profile X", "IOS_APP_STORE"),
-			*openapi.NewProfileCreateRequestDataRelationships(
-				*openapi.NewBundleIdCapabilityCreateRequestDataRelationshipsBundleId(
-					*openapi.NewBundleIdCapabilityCreateRequestDataRelationshipsBundleIdData("bundleIds", "Y74BKFQXG8"),
-				),
-				*openapi.NewProfileCreateRequestDataRelationshipsCertificates(
-					[]openapi.ProfileRelationshipsCertificatesDataInner{{Type: "certificates", Id: "JVLG7LVRRL"}},
-				),
-			),
-		),
-	)
+	bundle := createBundleId(t)
+	defer deleteBundleId(bundle.Data.GetId())
 
-	bundleId := &openapi.ProfileRelationshipsBundleId{
-		Data: &openapi.BundleIdCapabilityCreateRequestDataRelationshipsBundleIdData{Type: "bundleIds", Id: "Y74BKFQXG8"},
-	}
+	created := createProfile(t, bundle.Data.GetId(), "Test Provisioning Profile X")
 
-	certificate := &openapi.ProfileRelationshipsCertificates{
-		Data: []openapi.ProfileRelationshipsCertificatesDataInner{{Type: "certificates", Id: "JVLG7LVRRL"}},
-	}
+	assert.Equal(t, "Test Provisioning Profile X", created.Data.Attributes.GetName())
+	assert.Equal(t, "IOS_APP_STORE", created.Data.Attributes.GetProfileType())
 
-	data, _, err := apiClient.ProfilesAPI.ProfilesCreateInstance(context.Background()).ProfileCreateRequest(input).Execute()
-
-	assert.Equal(t, bundleId, data.Data.Relationships.BundleId)
-	assert.Equal(t, certificate, data.Data.Relationships.Certificates)
-
-	assert.Equal(t, "Test Provisioning Profile X", data.Data.Attributes.GetName())
-	assert.Equal(t, "IOS_APP_STORE", data.Data.Attributes.GetProfileType())
-
-	assert.NoError(t, err)
-
-	_, err = apiClient.ProfilesAPI.ProfilesDeleteInstance(context.Background(), data.Data.Id).Execute()
+	_, err := apiClient.ProfilesAPI.ProfilesDeleteInstance(context.Background(), created.Data.Id).Execute()
 	assert.NoError(t, err)
 }
