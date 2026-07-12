@@ -1,3 +1,11 @@
+> [!WARNING]
+> ## ⚠️ Deprecated — this provider has moved
+>
+> **`fintreal/appstore` is deprecated and no longer maintained.** It now lives at **[`elevenode/appstore`](https://registry.terraform.io/providers/elevenode/appstore/latest)** ([source](https://github.com/elevenode/terraform-provider-appstore)).
+>
+> To migrate, set the provider `source` to `elevenode/appstore`, then run:
+> `terraform state replace-provider registry.terraform.io/fintreal/appstore registry.terraform.io/elevenode/appstore`
+
 # Terraform Provider for App Store Connect
 
 This Terraform provider enables you to manage App Store Connect resources using Infrastructure as Code. It provides resources for managing bundle identifiers and provisioning profiles in your Apple Developer account.
