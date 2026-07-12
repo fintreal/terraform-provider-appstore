@@ -10,6 +10,7 @@ func Resource() *schema.Resource {
 	return &schema.Resource{
 		CreateContext: operations.Create,
 		ReadContext:   operations.Read,
+		UpdateContext: operations.Update,
 		DeleteContext: operations.Delete,
 		Schema: map[string]*schema.Schema{
 			"id": {
@@ -37,7 +38,6 @@ func Resource() *schema.Resource {
 					ValidateFunc: validation.StringInSlice(capabilities, true),
 				},
 				Optional: true,
-				ForceNew: true,
 			},
 		},
 	}
