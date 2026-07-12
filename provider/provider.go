@@ -49,6 +49,15 @@ func Provider() *schema.Provider {
 
 			var diags diag.Diagnostics
 
+			diags = append(diags, diag.Diagnostic{
+				Severity: diag.Warning,
+				Summary:  "The fintreal/appstore provider is deprecated and has moved to elevenode/appstore",
+				Detail: "fintreal/appstore is no longer maintained. Migrate to the elevenode/appstore provider:\n\n" +
+					"  terraform {\n    required_providers {\n      appstore = {\n        source  = \"elevenode/appstore\"\n        version = \"~> 1.0\"\n      }\n    }\n  }\n\n" +
+					"Then run:\n  terraform state replace-provider registry.terraform.io/fintreal/appstore registry.terraform.io/elevenode/appstore\n\n" +
+					"Migration guide: https://github.com/elevenode/terraform-provider-appstore",
+			})
+
 			if appstoreKey == "" {
 				diags = append(diags, diag.Diagnostic{
 					Severity: diag.Error,
@@ -73,7 +82,7 @@ func Provider() *schema.Provider {
 				})
 			}
 
-			if len(diags) > 0 {
+			if diags.HasError() {
 				return nil, diags
 			}
 
