@@ -26,41 +26,16 @@ func Update(ctx context.Context, d *schema.ResourceData, m any) diag.Diagnostics
 		}
 	}
 
-	if len(toRemove) > 0 {
-		capabilityIDs, err := capabilityIDsByType(ctx, client, id)
-		if err != nil {
-			return append(diags, diag.FromErr(err)...)
-		}
-		for _, capability := range toRemove {
-			capabilityID, ok := capabilityIDs[capability]
-			if !ok {
-				continue
-			}
-			if _, err := client.BundleIdCapabilitiesAPI.BundleIdCapabilitiesDeleteInstance(ctx, capabilityID).Execute(); err != nil {
-				diags = append(diags, diag.FromErr(err)...)
-			}
+	// Apple keys each capability as "<bundleId>_<TYPE>" (see the id returned on
+	// create), so the delete target can be built without a lookup.
+	for _, capability := range toRemove {
+		capabilityID := id + "_" + capability
+		if _, err := client.BundleIdCapabilitiesAPI.BundleIdCapabilitiesDeleteInstance(ctx, capabilityID).Execute(); err != nil {
+			diags = append(diags, diag.FromErr(err)...)
 		}
 	}
 
 	return diags
-}
-
-// capabilityIDsByType maps each capability type currently enabled on the bundle
-// identifier to the Apple resource id required to delete it.
-func capabilityIDsByType(ctx context.Context, client *openapi.APIClient, id string) (map[string]string, error) {
-	resp, _, err := client.BundleIdsAPI.BundleIdsGetInstance(ctx, id).
-		Include([]string{"bundleIdCapabilities"}).Execute()
-	if err != nil {
-		return nil, err
-	}
-	out := map[string]string{}
-	for _, included := range resp.GetIncluded() {
-		if capability := included.BundleIdCapability; capability != nil {
-			attributes := capability.GetAttributes()
-			out[string(attributes.GetCapabilityType())] = capability.GetId()
-		}
-	}
-	return out, nil
 }
 
 func toStringList(in []any) []string {
