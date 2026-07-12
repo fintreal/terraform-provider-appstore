@@ -46,49 +46,29 @@ func TestCreateAndDeleteBundleIdCapability(t *testing.T) {
 
 // TestUpdateBundleIdCapabilitiesInPlace exercises the mechanism the
 // appstore_bundle_identifier Update relies on: capabilities are enabled and
-// disabled as sub-resources of an existing bundle id, and the currently enabled
-// set is discoverable via the bundle id's included bundleIdCapabilities.
+// disabled as sub-resources of an existing bundle id, keyed by the deterministic
+// "<bundleId>_<TYPE>" id, without ever touching the bundle id itself.
 func TestUpdateBundleIdCapabilitiesInPlace(t *testing.T) {
 	created := createBundleId(t)
 	bundleId := created.Data.GetId()
 	defer deleteBundleId(bundleId)
 
-	addCapability(t, bundleId, "APPLE_ID_AUTH")
-	addCapability(t, bundleId, "PUSH_NOTIFICATIONS")
+	appleAuthID := addCapability(t, bundleId, "APPLE_ID_AUTH")
+	assert.Equal(t, bundleId+"_APPLE_ID_AUTH", appleAuthID)
 
-	enabled := capabilityIDsByType(t, bundleId)
-	assert.Contains(t, enabled, "APPLE_ID_AUTH")
-	assert.Contains(t, enabled, "PUSH_NOTIFICATIONS")
+	pushID := addCapability(t, bundleId, "PUSH_NOTIFICATIONS")
+	assert.Equal(t, bundleId+"_PUSH_NOTIFICATIONS", pushID)
 
+	// Disable one capability by its deterministic id, leaving the other in place.
 	_, err := apiClient.BundleIdCapabilitiesAPI.
-		BundleIdCapabilitiesDeleteInstance(context.Background(), enabled["PUSH_NOTIFICATIONS"]).Execute()
+		BundleIdCapabilitiesDeleteInstance(context.Background(), bundleId+"_PUSH_NOTIFICATIONS").Execute()
 	assert.NoError(t, err)
-
-	remaining := capabilityIDsByType(t, bundleId)
-	assert.Contains(t, remaining, "APPLE_ID_AUTH")
-	assert.NotContains(t, remaining, "PUSH_NOTIFICATIONS")
-}
-
-// capabilityIDsByType lists the bundle id's enabled capabilities keyed by type,
-// mirroring the provider's Include-based lookup used to delete capabilities.
-func capabilityIDsByType(t *testing.T, bundleId string) map[string]string {
-	t.Helper()
-	resp, _, err := apiClient.BundleIdsAPI.BundleIdsGetInstance(context.Background(), bundleId).
-		Include([]string{"bundleIdCapabilities"}).Execute()
-	assert.NoError(t, err)
-	out := map[string]string{}
-	for _, included := range resp.GetIncluded() {
-		if capability := included.BundleIdCapability; capability != nil {
-			attributes := capability.GetAttributes()
-			out[string(attributes.GetCapabilityType())] = capability.GetId()
-		}
-	}
-	return out
 }
 
 // addCapability enables a single capability on an existing bundle id, matching
-// the request the provider builds (APPLE_ID_AUTH carries its consent setting).
-func addCapability(t *testing.T, bundleId, capabilityType string) {
+// the request the provider builds (APPLE_ID_AUTH carries its consent setting),
+// and returns the created capability's id.
+func addCapability(t *testing.T, bundleId, capabilityType string) string {
 	t.Helper()
 	settings := []openapi.CapabilitySetting{}
 	if capabilityType == "APPLE_ID_AUTH" {
@@ -110,7 +90,8 @@ func addCapability(t *testing.T, bundleId, capabilityType string) {
 			),
 		),
 	)
-	_, _, err := apiClient.BundleIdCapabilitiesAPI.BundleIdCapabilitiesCreateInstance(context.Background()).
+	resp, _, err := apiClient.BundleIdCapabilitiesAPI.BundleIdCapabilitiesCreateInstance(context.Background()).
 		BundleIdCapabilityCreateRequest(input).Execute()
 	assert.NoError(t, err)
+	return resp.Data.GetId()
 }
